@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/Documents/JakubKowalski_etap2/Magazyn.cpp
+Magazyn.h
+D:/Documents/JakubKowalski_etap2/Magazyn.h
+
+D:/Documents/JakubKowalski_etap2/Magazyn.h
+Produkt.h
+D:/Documents/JakubKowalski_etap2/Produkt.h
+Paleciak.h
+D:/Documents/JakubKowalski_etap2/Paleciak.h
+
+D:/Documents/JakubKowalski_etap2/Paleciak.h
+Produkt.h
+D:/Documents/JakubKowalski_etap2/Produkt.h
+
+D:/Documents/JakubKowalski_etap2/Produkt.h
+iostream
+-
+vector
+-
+string
+-
+iomanip
+-
+
+D:/Documents/JakubKowalski_etap2/main.cpp
+Magazyn.h
+D:/Documents/JakubKowalski_etap2/Magazyn.h
+

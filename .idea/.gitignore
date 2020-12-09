@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# CodeStream ignored files
+/../../JakubKowalski_etap2\.idea/codestream.xml
+# Datasource local storage ignored files
+/../../../../:\Documents\JakubKowalski_etap2\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
