@@ -39,7 +39,7 @@ int main() {
                 wypiszMagazyny(magazyny);
                 break;
             default:
-                std::cerr << "Podaj poprawna ilosc!" << '\n';
+                std::cerr << "Podaj poprawna wartosc!" << '\n';
         }
     }while(choice != 0);
 
@@ -60,13 +60,14 @@ std::string readString() {
 void menuProdukt(std::vector<Magazyn*>& magazyny){
     int choice = 0;
     int which = 0;
-
+    std::string name;
+    int whichProduct;
     do {
         std::cout << "Na ktorym magazynie chcesz pracowac?" << '\n';
         which = readInt();
         if( which < 0) which = magazyny.size() + 1;
 
-    }while(which < magazyny.size() && ( std::cerr << "Podaj odpowiednia ilosc!" << '\n', 1) );
+    }while(which > magazyny.size() && ( std::cerr << "Podaj odpowiednia ilosc!" << '\n', 1) );
 
     do {
         std::cout <<"\n---====== MENU =====---\n"
@@ -87,24 +88,23 @@ void menuProdukt(std::vector<Magazyn*>& magazyny){
                             "1: Towar Sypki.\n"
                             "2: Towar Ciekly.\n"
                             "Wybierz akcje:" << '\n';
-                int whichProduct = readInt();
+                whichProduct = readInt();
+                std::cout << "Podaj nazwe produktu.\n";
+                name = readString();
                 switch (whichProduct) {
                     case 0:
-                        Towar* towar;
-                        magazyny[which].addProduct();
+                        magazyny[which]->addProduct(new Towar(magazyny[which]->fetchProductID(), name ));
                         break;
                     case 1:
-                        TowarSypki* towar;
-                        magazyny[which].addProduct();
+                        magazyny[which]->addProduct(new TowarSypki(magazyny[which]->fetchProductID(), name));
                         break;
                     case 2:
-                        TowarCiekly* towar;
-                        magazyny[which].addProduct();
+                        magazyny[which]->addProduct(new TowarCiekly(magazyny[which]->fetchProductID(), name ));
                         break;
                 }
-
                 break;
             case 2:
+                magazyny[which]->printWarehouse();
                 break;
             case 3:
                 do {
@@ -135,8 +135,7 @@ void menuMagazyn(std::vector<Magazyn*>& magazyny){
                 break;
             case 1:
                 std::cout << "Tworze magazyn.\n";
-//                Magazyn* temp = new Magazyn();
-//                magazyny.emplace_back(temp);
+                magazyny.emplace_back(new Magazyn(0));
                 break;
             case 2:
                 std::cout << "Ktory magazyn chcesz wypisac?(Podaj ID)\n";

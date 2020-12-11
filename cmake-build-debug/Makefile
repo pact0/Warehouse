@@ -208,6 +208,87 @@ Produkt.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Produkt.cpp.s
 .PHONY : Produkt.cpp.s
 
+Towar.obj: Towar.cpp.obj
+
+.PHONY : Towar.obj
+
+# target to build an object file
+Towar.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Towar.cpp.obj
+.PHONY : Towar.cpp.obj
+
+Towar.i: Towar.cpp.i
+
+.PHONY : Towar.i
+
+# target to preprocess a source file
+Towar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Towar.cpp.i
+.PHONY : Towar.cpp.i
+
+Towar.s: Towar.cpp.s
+
+.PHONY : Towar.s
+
+# target to generate assembly for a file
+Towar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Towar.cpp.s
+.PHONY : Towar.cpp.s
+
+TowarCiekly.obj: TowarCiekly.cpp.obj
+
+.PHONY : TowarCiekly.obj
+
+# target to build an object file
+TowarCiekly.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarCiekly.cpp.obj
+.PHONY : TowarCiekly.cpp.obj
+
+TowarCiekly.i: TowarCiekly.cpp.i
+
+.PHONY : TowarCiekly.i
+
+# target to preprocess a source file
+TowarCiekly.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarCiekly.cpp.i
+.PHONY : TowarCiekly.cpp.i
+
+TowarCiekly.s: TowarCiekly.cpp.s
+
+.PHONY : TowarCiekly.s
+
+# target to generate assembly for a file
+TowarCiekly.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarCiekly.cpp.s
+.PHONY : TowarCiekly.cpp.s
+
+TowarSypki.obj: TowarSypki.cpp.obj
+
+.PHONY : TowarSypki.obj
+
+# target to build an object file
+TowarSypki.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarSypki.cpp.obj
+.PHONY : TowarSypki.cpp.obj
+
+TowarSypki.i: TowarSypki.cpp.i
+
+.PHONY : TowarSypki.i
+
+# target to preprocess a source file
+TowarSypki.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarSypki.cpp.i
+.PHONY : TowarSypki.cpp.i
+
+TowarSypki.s: TowarSypki.cpp.s
+
+.PHONY : TowarSypki.s
+
+# target to generate assembly for a file
+TowarSypki.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarSypki.cpp.s
+.PHONY : TowarSypki.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -253,6 +334,15 @@ help:
 	@echo ... Produkt.obj
 	@echo ... Produkt.i
 	@echo ... Produkt.s
+	@echo ... Towar.obj
+	@echo ... Towar.i
+	@echo ... Towar.s
+	@echo ... TowarCiekly.obj
+	@echo ... TowarCiekly.i
+	@echo ... TowarCiekly.s
+	@echo ... TowarSypki.obj
+	@echo ... TowarSypki.i
+	@echo ... TowarSypki.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

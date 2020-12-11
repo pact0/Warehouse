@@ -7,6 +7,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "D:/Documents/JakubKowalski_etap2/Magazyn.cpp" "D:/Documents/JakubKowalski_etap2/cmake-build-debug/CMakeFiles/JakubKowalski_etap2.dir/Magazyn.cpp.obj"
   "D:/Documents/JakubKowalski_etap2/Paleciak.cpp" "D:/Documents/JakubKowalski_etap2/cmake-build-debug/CMakeFiles/JakubKowalski_etap2.dir/Paleciak.cpp.obj"
   "D:/Documents/JakubKowalski_etap2/Produkt.cpp" "D:/Documents/JakubKowalski_etap2/cmake-build-debug/CMakeFiles/JakubKowalski_etap2.dir/Produkt.cpp.obj"
+  "D:/Documents/JakubKowalski_etap2/Towar.cpp" "D:/Documents/JakubKowalski_etap2/cmake-build-debug/CMakeFiles/JakubKowalski_etap2.dir/Towar.cpp.obj"
+  "D:/Documents/JakubKowalski_etap2/TowarCiekly.cpp" "D:/Documents/JakubKowalski_etap2/cmake-build-debug/CMakeFiles/JakubKowalski_etap2.dir/TowarCiekly.cpp.obj"
+  "D:/Documents/JakubKowalski_etap2/TowarSypki.cpp" "D:/Documents/JakubKowalski_etap2/cmake-build-debug/CMakeFiles/JakubKowalski_etap2.dir/TowarSypki.cpp.obj"
   "D:/Documents/JakubKowalski_etap2/main.cpp" "D:/Documents/JakubKowalski_etap2/cmake-build-debug/CMakeFiles/JakubKowalski_etap2.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")

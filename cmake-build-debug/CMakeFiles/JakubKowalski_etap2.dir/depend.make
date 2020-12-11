@@ -10,8 +10,23 @@ CMakeFiles\JakubKowalski_etap2.dir\Paleciak.cpp.obj: ..\Paleciak.cpp
 
 CMakeFiles\JakubKowalski_etap2.dir\Produkt.cpp.obj: ..\Produkt.cpp
 
+CMakeFiles\JakubKowalski_etap2.dir\Towar.cpp.obj: ..\Produkt.h
+CMakeFiles\JakubKowalski_etap2.dir\Towar.cpp.obj: ..\Towar.cpp
+CMakeFiles\JakubKowalski_etap2.dir\Towar.cpp.obj: ..\Towar.h
+
+CMakeFiles\JakubKowalski_etap2.dir\TowarCiekly.cpp.obj: ..\Produkt.h
+CMakeFiles\JakubKowalski_etap2.dir\TowarCiekly.cpp.obj: ..\TowarCiekly.cpp
+CMakeFiles\JakubKowalski_etap2.dir\TowarCiekly.cpp.obj: ..\TowarCiekly.h
+
+CMakeFiles\JakubKowalski_etap2.dir\TowarSypki.cpp.obj: ..\Produkt.h
+CMakeFiles\JakubKowalski_etap2.dir\TowarSypki.cpp.obj: ..\TowarSypki.cpp
+CMakeFiles\JakubKowalski_etap2.dir\TowarSypki.cpp.obj: ..\TowarSypki.h
+
 CMakeFiles\JakubKowalski_etap2.dir\main.cpp.obj: ..\Magazyn.h
 CMakeFiles\JakubKowalski_etap2.dir\main.cpp.obj: ..\Paleciak.h
 CMakeFiles\JakubKowalski_etap2.dir\main.cpp.obj: ..\Produkt.h
+CMakeFiles\JakubKowalski_etap2.dir\main.cpp.obj: ..\Towar.h
+CMakeFiles\JakubKowalski_etap2.dir\main.cpp.obj: ..\TowarCiekly.h
+CMakeFiles\JakubKowalski_etap2.dir\main.cpp.obj: ..\TowarSypki.h
 CMakeFiles\JakubKowalski_etap2.dir\main.cpp.obj: ..\main.cpp
 
