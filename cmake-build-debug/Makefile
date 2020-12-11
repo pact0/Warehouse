@@ -154,6 +154,33 @@ Magazyn.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Magazyn.cpp.s
 .PHONY : Magazyn.cpp.s
 
+Paleciak.obj: Paleciak.cpp.obj
+
+.PHONY : Paleciak.obj
+
+# target to build an object file
+Paleciak.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Paleciak.cpp.obj
+.PHONY : Paleciak.cpp.obj
+
+Paleciak.i: Paleciak.cpp.i
+
+.PHONY : Paleciak.i
+
+# target to preprocess a source file
+Paleciak.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Paleciak.cpp.i
+.PHONY : Paleciak.cpp.i
+
+Paleciak.s: Paleciak.cpp.s
+
+.PHONY : Paleciak.s
+
+# target to generate assembly for a file
+Paleciak.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Paleciak.cpp.s
+.PHONY : Paleciak.cpp.s
+
 Produkt.obj: Produkt.cpp.obj
 
 .PHONY : Produkt.obj
@@ -220,6 +247,9 @@ help:
 	@echo ... Magazyn.obj
 	@echo ... Magazyn.i
 	@echo ... Magazyn.s
+	@echo ... Paleciak.obj
+	@echo ... Paleciak.i
+	@echo ... Paleciak.s
 	@echo ... Produkt.obj
 	@echo ... Produkt.i
 	@echo ... Produkt.s

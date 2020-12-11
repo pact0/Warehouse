@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/JakubKowalski_etap2.dir/Magazyn.cpp.obj"
+  "CMakeFiles/JakubKowalski_etap2.dir/Paleciak.cpp.obj"
   "CMakeFiles/JakubKowalski_etap2.dir/Produkt.cpp.obj"
   "CMakeFiles/JakubKowalski_etap2.dir/main.cpp.obj"
   "JakubKowalski_etap2.exe"

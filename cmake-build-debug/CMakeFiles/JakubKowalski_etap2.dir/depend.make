@@ -6,6 +6,8 @@ CMakeFiles\JakubKowalski_etap2.dir\Magazyn.cpp.obj: ..\Magazyn.h
 CMakeFiles\JakubKowalski_etap2.dir\Magazyn.cpp.obj: ..\Paleciak.h
 CMakeFiles\JakubKowalski_etap2.dir\Magazyn.cpp.obj: ..\Produkt.h
 
+CMakeFiles\JakubKowalski_etap2.dir\Paleciak.cpp.obj: ..\Paleciak.cpp
+
 CMakeFiles\JakubKowalski_etap2.dir\Produkt.cpp.obj: ..\Produkt.cpp
 
 CMakeFiles\JakubKowalski_etap2.dir\main.cpp.obj: ..\Magazyn.h

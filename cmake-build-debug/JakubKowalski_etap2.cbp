@@ -88,6 +88,9 @@
 		<Unit filename="D:/Documents/JakubKowalski_etap2/Magazyn.h">
 			<Option target="JakubKowalski_etap2"/>
 		</Unit>
+		<Unit filename="D:/Documents/JakubKowalski_etap2/Paleciak.cpp">
+			<Option target="JakubKowalski_etap2"/>
+		</Unit>
 		<Unit filename="D:/Documents/JakubKowalski_etap2/Paleciak.h">
 			<Option target="JakubKowalski_etap2"/>
 		</Unit>
@@ -95,6 +98,15 @@
 			<Option target="JakubKowalski_etap2"/>
 		</Unit>
 		<Unit filename="D:/Documents/JakubKowalski_etap2/Produkt.h">
+			<Option target="JakubKowalski_etap2"/>
+		</Unit>
+		<Unit filename="D:/Documents/JakubKowalski_etap2/Towar.h">
+			<Option target="JakubKowalski_etap2"/>
+		</Unit>
+		<Unit filename="D:/Documents/JakubKowalski_etap2/TowarCiekly.h">
+			<Option target="JakubKowalski_etap2"/>
+		</Unit>
+		<Unit filename="D:/Documents/JakubKowalski_etap2/TowarSypki.h">
 			<Option target="JakubKowalski_etap2"/>
 		</Unit>
 		<Unit filename="D:/Documents/JakubKowalski_etap2/main.cpp">

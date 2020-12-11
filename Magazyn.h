@@ -1,7 +1,6 @@
 #pragma once
 #include "Produkt.h"
 #include "Paleciak.h"
-
 class Magazyn {
     std::vector<Produkt*> _products;
     static int _counter_ID;
