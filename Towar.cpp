@@ -9,7 +9,7 @@ Towar::Towar(int ID,  std::string name) {
 void Towar::printProduct() const {
     std::cout << std::left << std::setw(4) << Produkt::ID;
     std::cout << std::left << std::setw(32) << _name;
-    std::cout << std::left << std::setw(16) << _amount << '\n';
+    std::cout << std::left  << _amount << '\n';
 }
 
 double Towar::increaseAmount(double count) {
@@ -24,4 +24,17 @@ double Towar::decreaseAmount(double count) {
 
 double Towar::setAmount(double count) {
     _amount = static_cast<int>(count);
-    return count;}
+    return count;
+}
+
+Produkt *Towar::split(double count) {
+    this->_amount -= static_cast<int>(count);
+    Towar* newTowar = new Towar(Produkt::ID, this->_name);
+    newTowar->setAmount(count);
+    return newTowar;
+}
+//
+void Towar::merge(Produkt *product) {
+    this->_amount += product->fetchAmount();
+    delete product;
+}

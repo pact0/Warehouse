@@ -9,7 +9,7 @@ TowarCiekly::TowarCiekly(int ID, std::string name) {
 void TowarCiekly::printProduct() const {
     std::cout << std::left << std::setw(4) << Produkt::ID;
     std::cout << std::left << std::setw(32) << _name;
-    std::cout << std::left << std::setw(16) << _amount << "l" << '\n';
+    std::cout << std::left << _amount <<  " l" << '\n';
 }
 
 double TowarCiekly::increaseAmount(double count) {
@@ -25,4 +25,12 @@ double TowarCiekly::decreaseAmount(double count) {
 double TowarCiekly::setAmount(double count) {
     _amount = count;
     return count;
+}
+
+Produkt *TowarCiekly::split(double count) {
+    return nullptr;
+}
+
+void TowarCiekly::merge(Produkt *product) {
+
 }
