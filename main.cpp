@@ -14,6 +14,7 @@ void printPaleciaki(std::vector<Paleciak>& paleciaki);
 int findWarehouse(std::vector<Magazyn>& warehouses, int ID);
 void przyjecie(Magazyn& warehouse);
 void odbior(Magazyn& warehouse);
+int readWarehouseID(Magazyn &warehouse);
 
 std::string readString();
 int readInt();
@@ -55,6 +56,8 @@ int main() {
 
 }
 
+
+
 int readInt() {
     std::string line;
     std::getline(std::cin, line);
@@ -70,15 +73,13 @@ std::string readString() {
 void menuProdukt(std::vector<Magazyn>& warehouses){
     int choice = 0;
     int which = chooseWarehouse(warehouses);
-    int whichProduct;
-    int productChoice;
-
+    std::string name;
     do {
         std::cout <<"\n---====== MENU =====---\n"
                     "0: Wychodzi z menu zarzadzania produktami.\n"
                     "1: Dodaj produkt.\n"
                     "2: Zmien produkt.\n"
-                    "3: Wypisz produkty.\n"//podaj ID ktorego chcesz wypisac
+                    "3: Wypisz produkty.\n"
                     "4: Zmien magazyn.\n"
                     "Wybierz akcje(0-4):" << '\n';
         choice = readInt();
@@ -92,16 +93,22 @@ void menuProdukt(std::vector<Magazyn>& warehouses){
                             "1: Towar Sypki.\n"
                             "2: Towar Ciekly.\n"
                             "Wybierz akcje(0-2):" << '\n';
-                std::cout << "Podaj nazwe produktu.\n";
                 switch ( readInt() ) {
                     case 0:
-                        warehouses[which].addProduct(new Towar(warehouses[which].fetchProductID(), readString() ));
+                        std::cout << "Podaj nazwe produktu.\n";
+                        name = readString();
+                        std::cout << "Podaj wage pojedynczego produktu w kg.\n";
+                        warehouses[which].addProduct(new Towar(warehouses[which].fetchProductID(),  name, readInt()));
                         break;
                     case 1:
+                        std::cout << "Podaj nazwe produktu.\n";
                         warehouses[which].addProduct(new TowarSypki(warehouses[which].fetchProductID(), readString()));
                         break;
                     case 2:
-                        warehouses[which].addProduct(new TowarCiekly(warehouses[which].fetchProductID(), readString() ));
+                        std::cout << "Podaj nazwe produktu.\n";
+                        name = readString();
+                        std::cout << "Podaj wage jednego litra produktu w kg.\n";
+                        warehouses[which].addProduct(new TowarCiekly(warehouses[which].fetchProductID(), name, readInt() ));
                         break;
                     default :
                         std::cerr << "Podaj poprawna wartosc(0-2)!" << '\n';
@@ -159,7 +166,7 @@ void menuMagazyn(std::vector<Magazyn>& warehouses){
         std::cout <<"\n---====== MENU =====---\n"
                     "0: Wychodzi z menu zarzadzania magazynami.\n"
                     "1: Utworz magazyn.\n"
-                    "2: Wypisz magazyn.\n"//podaj ID ktorego chcesz wypisac
+                    "2: Wypisz magazyn.\n"
                     "Wybierz akcje:" << '\n';
         choice = readInt();
         switch (choice) {
@@ -193,7 +200,7 @@ void menuPaleciak(std::vector<Magazyn>& warehouses, std::vector<Paleciak>& palec
     int choice = 0;
     int i = 0;
     int ID;
-    int which = chooseWarehouse(warehouses);
+    int which = 0;
     int howMuch;
     do {
         std::cout << "\n---====== MENU =====---\n"
@@ -210,29 +217,41 @@ void menuPaleciak(std::vector<Magazyn>& warehouses, std::vector<Paleciak>& palec
                 std::cout << "Wychodze z menu.\n";
                 break;
             case 1:
+                do {
+                    std::cout << "Podaj maksymalny udzwig w kg.\n";
+                    howMuch = readInt();
+                }while(howMuch <= 0 && ( std::cerr << "Podaj odpowiednia wartosc(wieksza od 0)!" << '\n', 1) );
                 std::cout << "Podaj maksymalny udzwig w kg.\n";
-                paleciaki.emplace_back(readInt());
+                paleciaki.emplace_back(howMuch);
                 break;
             case 2:
                 printPaleciaki(paleciaki);
                 break;
             case 3:
+                which = chooseWarehouse(warehouses);
                 std::cout << "Ktory paleciak zaladowac.\n";
+                printPaleciaki(paleciaki);
                 i = readInt();
                 std::cout << "Wybierz produkt(podaj ID).\n";
                 warehouses[which].printWarehouse();
                 ID = readInt();
 
-                std::cout << "Ile chcesz zaladowac?\n";
                 do {
+                    std::cout << "Ile chcesz zaladowac(Podaj w sztukach)?\n" << "Dostepna ilosc produktu: " << warehouses[which].fetchProductAmount(ID)
+                    << " Kazdy produkt wazy " << warehouses[which].fetchProductWeight(ID) << "kg" << '\n';
                     howMuch = readInt();
-                    if( howMuch < 0) howMuch = paleciaki[i].fetchMaximumLoad() + 1;
-                }while(howMuch > paleciaki[i].fetchMaximumLoad() && ( std::cerr << "Podaj odpowiednia wartosc( wieksza od 0 i mniejsza od maksymalnego udzwigu)!" << '\n', 1) );
-                // check whether howMuch is
+                    std::cout << "Probuje zaladowac " << warehouses[which].fetchProductWeight(ID)*howMuch << "kg produktu." << '\n';
+
+                    if( howMuch < 0 || howMuch > warehouses[which].fetchProductWeight(warehouses[which].findProductByID(ID)) * howMuch)
+                        howMuch = paleciaki[i].fetchMaximumLoad() + 1;
+                }while(howMuch > paleciaki[i].fetchMaximumLoad() &&
+                ( std::cerr << "Podaj odpowiednia wartosc( wieksza od 0 i mniejsza od maksymalnego udzwigu)!" << '\n', 1) );
                 warehouses[which].wydaj(&paleciaki[i], ID, howMuch);
                 break;
             case 4:
+                which = chooseWarehouse(warehouses);
                 std::cout << "Ktory paleciak rozladowac.\n";
+                printPaleciaki(paleciaki);
                 i = readInt();
                 std::cout << "Wybierz produkt(podaj ID).\n";
                 warehouses[which].printWarehouse();
@@ -241,7 +260,8 @@ void menuPaleciak(std::vector<Magazyn>& warehouses, std::vector<Paleciak>& palec
                 do {
                     howMuch = readInt();
                     if( howMuch < 0) howMuch = paleciaki[i].fetchMaximumLoad() + 1;
-                }while(howMuch > paleciaki[i].fetchProductAmount(paleciaki[i].findProductByID(ID)) && ( std::cerr << "Podaj odpowiednia wartosc( wieksza od 0 i nie wieksza od maksymalnego ciezaru produktu)!" << '\n', 1) );
+                }while(howMuch > paleciaki[i].fetchProductAmount(paleciaki[i].findProductByID(ID)) &&
+                ( std::cerr << "Podaj odpowiednia wartosc( wieksza od 0 i nie wieksza od maksymalnego ciezaru produktu)!" << '\n', 1) );
                 warehouses[which].przyjmij(&paleciaki[i], ID, readInt());
                 break;
             case 5:
@@ -255,7 +275,7 @@ void menuPaleciak(std::vector<Magazyn>& warehouses, std::vector<Paleciak>& palec
 }
 
 void printPaleciaki(std::vector<Paleciak>& paleciaki){
-    for (int i = 0; i < paleciaki.size(); ++i) {
+    for(int i = 0; i < paleciaki.size(); ++i) {
         paleciaki[i].printPaleciak();
     }
 }
@@ -293,7 +313,7 @@ void przyjecie( Magazyn& warehouse ) {
         j = readInt();
     } while ( ( j < 0 ) && ( std::cerr << "Podaj odpowiednia ilosc!" << '\n', 1) );
 
-    warehouse.changeProduct(index, j, Magazyn::manipulateProducts::zwieksz);
+    warehouse.changeProduct(index, j, Magazyn::manipulateProducts::decrease);
 }
 
 void odbior( Magazyn& warehouse ) {
@@ -320,8 +340,7 @@ void odbior( Magazyn& warehouse ) {
             }
         }while((j > warehouse.fetchProductAmount(i) ) && ( std::cerr << "Podaj odpowiednia ilosc!" << '\n', 1) );
         // wypisuje blad dopiero za druga iteracja petli,
-        // ( std::cerr << "Odejmujesz za duzo towarow!" << '\n', 1) zwraca zawsze druga wartosc czyli 1 ( nie bylem pewny co zwraca cerr )
-        warehouse.changeProduct(index, j, Magazyn::manipulateProducts::zmniejsz);
+        warehouse.changeProduct(index, j, Magazyn::manipulateProducts::increase);
     }
     else
         std::cout << "Ilosc towarow to 0. Nie mozna nic odjac." << '\n';

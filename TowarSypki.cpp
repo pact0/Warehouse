@@ -1,7 +1,8 @@
 #include "TowarSypki.h"
 
-TowarSypki::TowarSypki(int ID, std::string name) {
+TowarSypki::TowarSypki(int ID, std::string name, double weight) {
     Produkt::ID = ID;
+    _weight = weight;
     _amount = 0;
     _name = name;
 }
@@ -28,9 +29,13 @@ double TowarSypki::setAmount(double count) {
 }
 
 Produkt *TowarSypki::split(double count) {
-    return nullptr;
+    this->_amount -= static_cast<int>(count);
+    TowarSypki* newTowar = new TowarSypki(this->Produkt::ID, this->_name);
+    newTowar->setAmount(count);
+    return newTowar;
 }
 
 void TowarSypki::merge(Produkt *product) {
-
+    this->_amount += product->fetchAmount();
+    delete product;
 }

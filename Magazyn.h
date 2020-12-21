@@ -7,9 +7,10 @@ class Magazyn {
     int _ID;
 public:
 
-    enum class manipulateProducts{zmniejsz, zwieksz, ustaw};
+    enum class manipulateProducts{increase, decrease, set};
     static int fetchProductID() { return _counter_ID++;};
     int fetchProductAmount(int idx) const { return _products[idx]->fetchAmount(); };
+    double fetchProductWeight(int idx) const { return _products[idx]->fetchWeight(); };
     int fetchID() const { return _ID; };
     int fetchProductCount() const { return _products.size(); };
     void printWarehouse();

@@ -24,12 +24,13 @@ Magazyn::Magazyn(int ID) {
 Magazyn::~Magazyn() {
     for (auto &product :_products)
         delete product;
+    _products.clear();
 }
 
 void Magazyn::changeProduct(int ID, double howMuch, Magazyn::manipulateProducts x) {
-    if( x == manipulateProducts::zmniejsz )
+    if( x == manipulateProducts::increase )
         _products[ID]->decreaseAmount(howMuch);
-    else if(x == manipulateProducts::zwieksz)
+    else if(x == manipulateProducts::decrease)
         _products[ID]->increaseAmount(howMuch);
     else
         _products[ID]->setAmount(howMuch);
@@ -43,13 +44,13 @@ int Magazyn::findProductByID(int ID) {
 
 void Magazyn::wydaj(Paleciak* paleciak, int ID, int howMuch) {
     int idx = findProductByID(ID);
-    _products[idx]->decreaseAmount(howMuch);
     paleciak->loadProduct(_products[idx]->split(howMuch));
 }
 
 void Magazyn::przyjmij(Paleciak* paleciak, int ID, int howMuch) {
     int idx = findProductByID(ID);
     int idx_p = paleciak->findProductByID(ID);
+    if ( idx = -1 ) this->addProduct(paleciak->unLoadProduct(idx_p,howMuch));
     _products[idx]->increaseAmount(howMuch);
     paleciak->unLoadProduct(idx_p, howMuch);
 }

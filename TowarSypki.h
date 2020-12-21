@@ -4,12 +4,13 @@
 class TowarSypki: public Produkt{
     std::string _name;
     double _amount;
+    double _weight;
 public:
-    TowarSypki(int ID = -1, std::string name = "nieznany");
+    TowarSypki(int ID = -1, std::string name = "nieznany", double weight = 0);
     double fetchAmount() const override { return _amount; };
+    double fetchWeight() const override { return _amount; };
     std::string fetchName() const override { return _name; };
     void printProduct() const override;
-    double fetchWeight() const override { return _amount; };
 
     double increaseAmount(double count) override;   // zwieksza ilosc o count, zwraca ilosc dodanych towarow
     double decreaseAmount(double count) override;   // zmniejsza ilosc o count, zwraca ilosc odebranych towarow

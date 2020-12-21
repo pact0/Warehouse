@@ -1,9 +1,10 @@
 #include "Towar.h"
 
-Towar::Towar(int ID,  std::string name) {
+Towar::Towar(int ID,  std::string name, double weight) {
     Produkt::ID = ID;
     _amount = 0;
     _name = name;
+    _weight = weight;
 }
 
 void Towar::printProduct() const {
@@ -29,11 +30,11 @@ double Towar::setAmount(double count) {
 
 Produkt *Towar::split(double count) {
     this->_amount -= static_cast<int>(count);
-    Towar* newTowar = new Towar(Produkt::ID, this->_name);
+    Towar* newTowar = new Towar(this->Produkt::ID, this->_name);
     newTowar->setAmount(count);
     return newTowar;
 }
-//
+
 void Towar::merge(Produkt *product) {
     this->_amount += product->fetchAmount();
     delete product;

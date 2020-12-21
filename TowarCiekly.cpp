@@ -1,7 +1,8 @@
 #include "TowarCiekly.h"
 
-TowarCiekly::TowarCiekly(int ID, std::string name) {
+TowarCiekly::TowarCiekly(int ID, std::string name, double weight) {
     Produkt::ID = ID;
+    _weight = weight;
     _amount = 0;
     _name = name;
 }
@@ -28,9 +29,13 @@ double TowarCiekly::setAmount(double count) {
 }
 
 Produkt *TowarCiekly::split(double count) {
-    return nullptr;
+    this->_amount -= static_cast<int>(count);
+    TowarCiekly* newTowar = new TowarCiekly(this->Produkt::ID, this->_name);
+    newTowar->setAmount(count);
+    return newTowar;
 }
 
 void TowarCiekly::merge(Produkt *product) {
-
+    this->_amount += product->fetchAmount();
+    delete product;
 }
