@@ -6,14 +6,15 @@ void Magazyn::printWarehouse() {
     std::cout << "---------------MAGAZYN ID_"<< _ID << "-------------" << '\n';
     std::cout << std::left << std::setw(4) << "ID";
     std::cout << std::left << std::setw(32) << "Nazwa";
+    std::cout << std::left << std::setw(16) << "Waga jednego";
     std::cout << std::left << std::setw(16) << "Ilosc" << '\n';
     for( auto& item: _products) {
         item->printProduct();
     }
-
+    std::cout << '\n';
 }
 
-void Magazyn::addProduct(Produkt *produkt) {
+void Magazyn::addProduct(Product *produkt) {
     _products.push_back(produkt);
 }
 
@@ -42,15 +43,18 @@ int Magazyn::findProductByID(int ID) {
     return -1;
 }
 
-void Magazyn::wydaj(Paleciak* paleciak, int ID, int howMuch) {
+void Magazyn::wydaj(PalletTruck* palletTruck, int ID, int howMuch) {
     int idx = findProductByID(ID);
-    paleciak->loadProduct(_products[idx]->split(howMuch));
+    palletTruck->loadProduct(_products[idx]->split(howMuch));
 }
 
-void Magazyn::przyjmij(Paleciak* paleciak, int ID, int howMuch) {
-    int idx = findProductByID(ID);
-    int idx_p = paleciak->findProductByID(ID);
-    if ( idx = -1 ) this->addProduct(paleciak->unLoadProduct(idx_p,howMuch));
+void Magazyn::przyjmij(PalletTruck* palletTruck, int ID, int howMuch) {
+    int idx = this->findProductByID(ID);
+    int idx_p = palletTruck->findProductByID(ID);
+    if ( idx == -1 )
+        this->addProduct(palletTruck->unLoadProduct(idx_p, howMuch));
+    else{
     _products[idx]->increaseAmount(howMuch);
-    paleciak->unLoadProduct(idx_p, howMuch);
+    palletTruck->unLoadProduct(idx_p, howMuch);
+    }
 }

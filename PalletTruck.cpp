@@ -40,6 +40,7 @@ int Paleciak::findProductByID(int ID) {
 
 void Paleciak::printPaleciak() const {
     std::cout << "---------------PALECIAK ID_" <<  _ID << "-------------" << '\n';
+    std::cout << "Maksymalny udzwig: " << _maximumLoad << '\n';
     std::cout << std::left << std::setw(4) << "ID";
     std::cout << std::left << std::setw(32) << "Nazwa";
     std::cout << std::left << std::setw(16) << "Ilosc" << '\n';

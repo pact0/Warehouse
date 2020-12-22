@@ -6,7 +6,7 @@ class Paleciak {
     std::vector<Produkt*> _products;
     int _ID;
     double _maximumLoad;
-    double _currentLoad;
+    double _currentLoad{};
 public:
     int findProductByID(int ID);
     double fetchMaximumLoad() const { return _maximumLoad; };
