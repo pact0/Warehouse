@@ -43,19 +43,19 @@ NULL=nul
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Documents\JakubKowalski_etap2
+CMAKE_SOURCE_DIR = C:\Users\Kuba\Documents\Warehouse
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Documents\JakubKowalski_etap2\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Kuba\Documents\Warehouse\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = D:\Documents\JakubKowalski_etap2\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	echo >nul && "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	echo >nul && "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -74,7 +74,7 @@ edit_cache\fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	echo >nul && "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	echo >nul && "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -84,9 +84,9 @@ rebuild_cache\fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\JakubKowalski_etap2\cmake-build-debug\CMakeFiles D:\Documents\JakubKowalski_etap2\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kuba\Documents\Warehouse\cmake-build-debug\CMakeFiles C:\Users\Kuba\Documents\Warehouse\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\JakubKowalski_etap2\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kuba\Documents\Warehouse\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -115,98 +115,71 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named JakubKowalski_etap2
+# Target rules for targets named Warehouse
 
 # Build rule for target.
-JakubKowalski_etap2: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) JakubKowalski_etap2
-.PHONY : JakubKowalski_etap2
+Warehouse: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) Warehouse
+.PHONY : Warehouse
 
 # fast build rule for target.
-JakubKowalski_etap2\fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\build
-.PHONY : JakubKowalski_etap2\fast
+Warehouse\fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\build
+.PHONY : Warehouse\fast
 
-Magazyn.obj: Magazyn.cpp.obj
+PalletTruck.obj: PalletTruck.cpp.obj
 
-.PHONY : Magazyn.obj
-
-# target to build an object file
-Magazyn.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Magazyn.cpp.obj
-.PHONY : Magazyn.cpp.obj
-
-Magazyn.i: Magazyn.cpp.i
-
-.PHONY : Magazyn.i
-
-# target to preprocess a source file
-Magazyn.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Magazyn.cpp.i
-.PHONY : Magazyn.cpp.i
-
-Magazyn.s: Magazyn.cpp.s
-
-.PHONY : Magazyn.s
-
-# target to generate assembly for a file
-Magazyn.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Magazyn.cpp.s
-.PHONY : Magazyn.cpp.s
-
-Paleciak.obj: Paleciak.cpp.obj
-
-.PHONY : Paleciak.obj
+.PHONY : PalletTruck.obj
 
 # target to build an object file
-Paleciak.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Paleciak.cpp.obj
-.PHONY : Paleciak.cpp.obj
+PalletTruck.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\PalletTruck.cpp.obj
+.PHONY : PalletTruck.cpp.obj
 
-Paleciak.i: Paleciak.cpp.i
+PalletTruck.i: PalletTruck.cpp.i
 
-.PHONY : Paleciak.i
+.PHONY : PalletTruck.i
 
 # target to preprocess a source file
-Paleciak.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Paleciak.cpp.i
-.PHONY : Paleciak.cpp.i
+PalletTruck.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\PalletTruck.cpp.i
+.PHONY : PalletTruck.cpp.i
 
-Paleciak.s: Paleciak.cpp.s
+PalletTruck.s: PalletTruck.cpp.s
 
-.PHONY : Paleciak.s
+.PHONY : PalletTruck.s
 
 # target to generate assembly for a file
-Paleciak.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Paleciak.cpp.s
-.PHONY : Paleciak.cpp.s
+PalletTruck.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\PalletTruck.cpp.s
+.PHONY : PalletTruck.cpp.s
 
-Produkt.obj: Produkt.cpp.obj
+Product.obj: Product.cpp.obj
 
-.PHONY : Produkt.obj
+.PHONY : Product.obj
 
 # target to build an object file
-Produkt.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Produkt.cpp.obj
-.PHONY : Produkt.cpp.obj
+Product.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Product.cpp.obj
+.PHONY : Product.cpp.obj
 
-Produkt.i: Produkt.cpp.i
+Product.i: Product.cpp.i
 
-.PHONY : Produkt.i
+.PHONY : Product.i
 
 # target to preprocess a source file
-Produkt.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Produkt.cpp.i
-.PHONY : Produkt.cpp.i
+Product.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Product.cpp.i
+.PHONY : Product.cpp.i
 
-Produkt.s: Produkt.cpp.s
+Product.s: Product.cpp.s
 
-.PHONY : Produkt.s
+.PHONY : Product.s
 
 # target to generate assembly for a file
-Produkt.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Produkt.cpp.s
-.PHONY : Produkt.cpp.s
+Product.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Product.cpp.s
+.PHONY : Product.cpp.s
 
 Towar.obj: Towar.cpp.obj
 
@@ -214,7 +187,7 @@ Towar.obj: Towar.cpp.obj
 
 # target to build an object file
 Towar.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Towar.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Towar.cpp.obj
 .PHONY : Towar.cpp.obj
 
 Towar.i: Towar.cpp.i
@@ -223,7 +196,7 @@ Towar.i: Towar.cpp.i
 
 # target to preprocess a source file
 Towar.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Towar.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Towar.cpp.i
 .PHONY : Towar.cpp.i
 
 Towar.s: Towar.cpp.s
@@ -232,7 +205,7 @@ Towar.s: Towar.cpp.s
 
 # target to generate assembly for a file
 Towar.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\Towar.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Towar.cpp.s
 .PHONY : Towar.cpp.s
 
 TowarCiekly.obj: TowarCiekly.cpp.obj
@@ -241,7 +214,7 @@ TowarCiekly.obj: TowarCiekly.cpp.obj
 
 # target to build an object file
 TowarCiekly.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarCiekly.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarCiekly.cpp.obj
 .PHONY : TowarCiekly.cpp.obj
 
 TowarCiekly.i: TowarCiekly.cpp.i
@@ -250,7 +223,7 @@ TowarCiekly.i: TowarCiekly.cpp.i
 
 # target to preprocess a source file
 TowarCiekly.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarCiekly.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarCiekly.cpp.i
 .PHONY : TowarCiekly.cpp.i
 
 TowarCiekly.s: TowarCiekly.cpp.s
@@ -259,7 +232,7 @@ TowarCiekly.s: TowarCiekly.cpp.s
 
 # target to generate assembly for a file
 TowarCiekly.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarCiekly.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarCiekly.cpp.s
 .PHONY : TowarCiekly.cpp.s
 
 TowarSypki.obj: TowarSypki.cpp.obj
@@ -268,7 +241,7 @@ TowarSypki.obj: TowarSypki.cpp.obj
 
 # target to build an object file
 TowarSypki.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarSypki.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarSypki.cpp.obj
 .PHONY : TowarSypki.cpp.obj
 
 TowarSypki.i: TowarSypki.cpp.i
@@ -277,7 +250,7 @@ TowarSypki.i: TowarSypki.cpp.i
 
 # target to preprocess a source file
 TowarSypki.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarSypki.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarSypki.cpp.i
 .PHONY : TowarSypki.cpp.i
 
 TowarSypki.s: TowarSypki.cpp.s
@@ -286,8 +259,35 @@ TowarSypki.s: TowarSypki.cpp.s
 
 # target to generate assembly for a file
 TowarSypki.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\TowarSypki.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarSypki.cpp.s
 .PHONY : TowarSypki.cpp.s
+
+Warehouse.obj: Warehouse.cpp.obj
+
+.PHONY : Warehouse.obj
+
+# target to build an object file
+Warehouse.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Warehouse.cpp.obj
+.PHONY : Warehouse.cpp.obj
+
+Warehouse.i: Warehouse.cpp.i
+
+.PHONY : Warehouse.i
+
+# target to preprocess a source file
+Warehouse.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Warehouse.cpp.i
+.PHONY : Warehouse.cpp.i
+
+Warehouse.s: Warehouse.cpp.s
+
+.PHONY : Warehouse.s
+
+# target to generate assembly for a file
+Warehouse.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Warehouse.cpp.s
+.PHONY : Warehouse.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -295,7 +295,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -304,7 +304,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -313,7 +313,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -324,16 +324,13 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... JakubKowalski_etap2
-	@echo ... Magazyn.obj
-	@echo ... Magazyn.i
-	@echo ... Magazyn.s
-	@echo ... Paleciak.obj
-	@echo ... Paleciak.i
-	@echo ... Paleciak.s
-	@echo ... Produkt.obj
-	@echo ... Produkt.i
-	@echo ... Produkt.s
+	@echo ... Warehouse
+	@echo ... PalletTruck.obj
+	@echo ... PalletTruck.i
+	@echo ... PalletTruck.s
+	@echo ... Product.obj
+	@echo ... Product.i
+	@echo ... Product.s
 	@echo ... Towar.obj
 	@echo ... Towar.i
 	@echo ... Towar.s
@@ -343,6 +340,9 @@ help:
 	@echo ... TowarSypki.obj
 	@echo ... TowarSypki.i
 	@echo ... TowarSypki.s
+	@echo ... Warehouse.obj
+	@echo ... Warehouse.i
+	@echo ... Warehouse.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

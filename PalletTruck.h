@@ -1,21 +1,23 @@
 #pragma once
-#include "Produkt.h"
+#include "Product.h"
 
 
-class Paleciak {
-    std::vector<Produkt*> _products;
+class PalletTruck {
+    std::vector<Product*> _products;
     int _ID;
     double _maximumLoad;
     double _currentLoad{};
 public:
-    int findProductByID(int ID);
+    explicit PalletTruck(double max);
+    ~PalletTruck();
+
+    std::string fetchProductName(int ID) const { return _products[ID]->fetchName();};
     double fetchMaximumLoad() const { return _maximumLoad; };
     double fetchCurrentLoad() const { return _currentLoad; };
     double fetchProductAmount(int ID) const { return _products[ID]->fetchAmount();};
-    std::string fetchProductName(int ID) const { return _products[ID]->fetchName();};
     void printPaleciak() const;
-    void loadProduct(Produkt* product);
-    Produkt* unLoadProduct(int idx, int howMuch);
-    Paleciak(int max);
-    ~Paleciak();
+
+    int findProductByID(int ID);
+    Product* unLoadProduct(int idx, int howMuch);
+    void loadProduct(Product* product);
 };

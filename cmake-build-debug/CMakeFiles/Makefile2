@@ -39,25 +39,25 @@ NULL=nul
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\Documents\JakubKowalski_etap2
+CMAKE_SOURCE_DIR = C:\Users\Kuba\Documents\Warehouse
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\Documents\JakubKowalski_etap2\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Kuba\Documents\Warehouse\cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles\JakubKowalski_etap2.dir\all
+all: CMakeFiles\Warehouse.dir\all
 
 .PHONY : all
 
@@ -67,36 +67,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles\JakubKowalski_etap2.dir\clean
+clean: CMakeFiles\Warehouse.dir\clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/JakubKowalski_etap2.dir
+# Target rules for target CMakeFiles/Warehouse.dir
 
 # All Build rule for target.
-CMakeFiles\JakubKowalski_etap2.dir\all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Documents\JakubKowalski_etap2\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target JakubKowalski_etap2"
-.PHONY : CMakeFiles\JakubKowalski_etap2.dir\all
+CMakeFiles\Warehouse.dir\all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\Kuba\Documents\Warehouse\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target Warehouse"
+.PHONY : CMakeFiles\Warehouse.dir\all
 
 # Build rule for subdir invocation for target.
-CMakeFiles\JakubKowalski_etap2.dir\rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\JakubKowalski_etap2\cmake-build-debug\CMakeFiles 8
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\all
-	$(CMAKE_COMMAND) -E cmake_progress_start D:\Documents\JakubKowalski_etap2\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles\JakubKowalski_etap2.dir\rule
+CMakeFiles\Warehouse.dir\rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kuba\Documents\Warehouse\cmake-build-debug\CMakeFiles 8
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kuba\Documents\Warehouse\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles\Warehouse.dir\rule
 
 # Convenience name for target.
-JakubKowalski_etap2: CMakeFiles\JakubKowalski_etap2.dir\rule
+Warehouse: CMakeFiles\Warehouse.dir\rule
 
-.PHONY : JakubKowalski_etap2
+.PHONY : Warehouse
 
 # clean rule for target.
-CMakeFiles\JakubKowalski_etap2.dir\clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\JakubKowalski_etap2.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\JakubKowalski_etap2.dir\clean
-.PHONY : CMakeFiles\JakubKowalski_etap2.dir\clean
+CMakeFiles\Warehouse.dir\clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\clean
+.PHONY : CMakeFiles\Warehouse.dir\clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

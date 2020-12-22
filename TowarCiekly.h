@@ -1,20 +1,21 @@
 #pragma once
-#include "Produkt.h"
+#include "Product.h"
 
-class TowarCiekly:public Produkt{
+class TowarCiekly:public Product{
     std::string _name;
     double _amount;
     double _weight;
 public:
-    TowarCiekly(int ID = -1, std::string name = "nieznany", double weight = 0);
+    explicit TowarCiekly(int ID = -1, std::string name = "nieznany", double weight = 0);
+
+    std::string fetchName() const override { return _name; };
     double fetchAmount() const override { return _amount; };
     double fetchWeight() const override { return _weight; };
-    std::string fetchName() const override { return _name; };
     void printProduct() const override;
 
     double increaseAmount(double count) override;   // zwieksza ilosc o count, zwraca ilosc dodanych towarow
     double decreaseAmount(double count) override;   // zmniejsza ilosc o count, zwraca ilosc odebranych towarow
     double setAmount(double count) override;        // ustawia ilosc na count, zwraca na jaka wartosc ustawiono ilosc
-    Produkt* split(double count) override;
-    void merge(Produkt* product) override;
+    Product* split(double count) override;
+    void merge(Product* product) override;
 };
