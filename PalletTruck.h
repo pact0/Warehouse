@@ -15,6 +15,7 @@ public:
     double fetchMaximumLoad() const { return _maximumLoad; };
     double fetchCurrentLoad() const { return _currentLoad; };
     double fetchProductAmount(int ID) const { return _products[ID]->fetchAmount();};
+    int fetchPalletID() const { return _ID;};
     void printPaleciak() const;
 
     int findProductByID(int ID);

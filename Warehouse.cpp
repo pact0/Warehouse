@@ -53,7 +53,8 @@ void Warehouse::collect(PalletTruck* palletTruck, int ID, int howMuch) {
     int idx_p = palletTruck->findProductByID(ID);
     if ( idx == -1 )
         this->addProduct(palletTruck->unLoadProduct(idx_p, howMuch));
-    else{
+    else
+        {
     _products[idx]->increaseAmount(howMuch);
     palletTruck->unLoadProduct(idx_p, howMuch);
     }
