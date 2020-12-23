@@ -1,12 +1,12 @@
 #pragma once
 #include "Product.h"
 
-class TowarSypki: public Product{
+class LiquidProduct: public Product{
     std::string _name;
     double _amount;
     double _weight;
 public:
-    explicit TowarSypki(int ID = -1, std::string name = "nieznany", double weight = 1);
+    explicit LiquidProduct(int ID = -1, std::string name = "nieznany", double weight = 0);
 
     std::string fetchName() const override { return _name; };
     double fetchAmount() const override { return _amount; };

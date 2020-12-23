@@ -127,6 +127,60 @@ Warehouse\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\build
 .PHONY : Warehouse\fast
 
+LiquidProduct.obj: LiquidProduct.cpp.obj
+
+.PHONY : LiquidProduct.obj
+
+# target to build an object file
+LiquidProduct.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\LiquidProduct.cpp.obj
+.PHONY : LiquidProduct.cpp.obj
+
+LiquidProduct.i: LiquidProduct.cpp.i
+
+.PHONY : LiquidProduct.i
+
+# target to preprocess a source file
+LiquidProduct.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\LiquidProduct.cpp.i
+.PHONY : LiquidProduct.cpp.i
+
+LiquidProduct.s: LiquidProduct.cpp.s
+
+.PHONY : LiquidProduct.s
+
+# target to generate assembly for a file
+LiquidProduct.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\LiquidProduct.cpp.s
+.PHONY : LiquidProduct.cpp.s
+
+LooseProduct.obj: LooseProduct.cpp.obj
+
+.PHONY : LooseProduct.obj
+
+# target to build an object file
+LooseProduct.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\LooseProduct.cpp.obj
+.PHONY : LooseProduct.cpp.obj
+
+LooseProduct.i: LooseProduct.cpp.i
+
+.PHONY : LooseProduct.i
+
+# target to preprocess a source file
+LooseProduct.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\LooseProduct.cpp.i
+.PHONY : LooseProduct.cpp.i
+
+LooseProduct.s: LooseProduct.cpp.s
+
+.PHONY : LooseProduct.s
+
+# target to generate assembly for a file
+LooseProduct.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\LooseProduct.cpp.s
+.PHONY : LooseProduct.cpp.s
+
 PalletTruck.obj: PalletTruck.cpp.obj
 
 .PHONY : PalletTruck.obj
@@ -181,86 +235,32 @@ Product.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Product.cpp.s
 .PHONY : Product.cpp.s
 
-Towar.obj: Towar.cpp.obj
+UnitProduct.obj: UnitProduct.cpp.obj
 
-.PHONY : Towar.obj
-
-# target to build an object file
-Towar.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Towar.cpp.obj
-.PHONY : Towar.cpp.obj
-
-Towar.i: Towar.cpp.i
-
-.PHONY : Towar.i
-
-# target to preprocess a source file
-Towar.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Towar.cpp.i
-.PHONY : Towar.cpp.i
-
-Towar.s: Towar.cpp.s
-
-.PHONY : Towar.s
-
-# target to generate assembly for a file
-Towar.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Towar.cpp.s
-.PHONY : Towar.cpp.s
-
-TowarCiekly.obj: TowarCiekly.cpp.obj
-
-.PHONY : TowarCiekly.obj
+.PHONY : UnitProduct.obj
 
 # target to build an object file
-TowarCiekly.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarCiekly.cpp.obj
-.PHONY : TowarCiekly.cpp.obj
+UnitProduct.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\UnitProduct.cpp.obj
+.PHONY : UnitProduct.cpp.obj
 
-TowarCiekly.i: TowarCiekly.cpp.i
+UnitProduct.i: UnitProduct.cpp.i
 
-.PHONY : TowarCiekly.i
-
-# target to preprocess a source file
-TowarCiekly.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarCiekly.cpp.i
-.PHONY : TowarCiekly.cpp.i
-
-TowarCiekly.s: TowarCiekly.cpp.s
-
-.PHONY : TowarCiekly.s
-
-# target to generate assembly for a file
-TowarCiekly.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarCiekly.cpp.s
-.PHONY : TowarCiekly.cpp.s
-
-TowarSypki.obj: TowarSypki.cpp.obj
-
-.PHONY : TowarSypki.obj
-
-# target to build an object file
-TowarSypki.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarSypki.cpp.obj
-.PHONY : TowarSypki.cpp.obj
-
-TowarSypki.i: TowarSypki.cpp.i
-
-.PHONY : TowarSypki.i
+.PHONY : UnitProduct.i
 
 # target to preprocess a source file
-TowarSypki.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarSypki.cpp.i
-.PHONY : TowarSypki.cpp.i
+UnitProduct.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\UnitProduct.cpp.i
+.PHONY : UnitProduct.cpp.i
 
-TowarSypki.s: TowarSypki.cpp.s
+UnitProduct.s: UnitProduct.cpp.s
 
-.PHONY : TowarSypki.s
+.PHONY : UnitProduct.s
 
 # target to generate assembly for a file
-TowarSypki.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\TowarSypki.cpp.s
-.PHONY : TowarSypki.cpp.s
+UnitProduct.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\UnitProduct.cpp.s
+.PHONY : UnitProduct.cpp.s
 
 Warehouse.obj: Warehouse.cpp.obj
 
@@ -288,6 +288,33 @@ Warehouse.s: Warehouse.cpp.s
 Warehouse.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Warehouse.cpp.s
 .PHONY : Warehouse.cpp.s
+
+helperFun.obj: helperFun.cpp.obj
+
+.PHONY : helperFun.obj
+
+# target to build an object file
+helperFun.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\helperFun.cpp.obj
+.PHONY : helperFun.cpp.obj
+
+helperFun.i: helperFun.cpp.i
+
+.PHONY : helperFun.i
+
+# target to preprocess a source file
+helperFun.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\helperFun.cpp.i
+.PHONY : helperFun.cpp.i
+
+helperFun.s: helperFun.cpp.s
+
+.PHONY : helperFun.s
+
+# target to generate assembly for a file
+helperFun.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\helperFun.cpp.s
+.PHONY : helperFun.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -325,24 +352,27 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Warehouse
+	@echo ... LiquidProduct.obj
+	@echo ... LiquidProduct.i
+	@echo ... LiquidProduct.s
+	@echo ... LooseProduct.obj
+	@echo ... LooseProduct.i
+	@echo ... LooseProduct.s
 	@echo ... PalletTruck.obj
 	@echo ... PalletTruck.i
 	@echo ... PalletTruck.s
 	@echo ... Product.obj
 	@echo ... Product.i
 	@echo ... Product.s
-	@echo ... Towar.obj
-	@echo ... Towar.i
-	@echo ... Towar.s
-	@echo ... TowarCiekly.obj
-	@echo ... TowarCiekly.i
-	@echo ... TowarCiekly.s
-	@echo ... TowarSypki.obj
-	@echo ... TowarSypki.i
-	@echo ... TowarSypki.s
+	@echo ... UnitProduct.obj
+	@echo ... UnitProduct.i
+	@echo ... UnitProduct.s
 	@echo ... Warehouse.obj
 	@echo ... Warehouse.i
 	@echo ... Warehouse.s
+	@echo ... helperFun.obj
+	@echo ... helperFun.i
+	@echo ... helperFun.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

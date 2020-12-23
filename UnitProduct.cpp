@@ -1,42 +1,42 @@
-#include "Towar.h"
+#include "UnitProduct.h"
 
-Towar::Towar(int ID,  std::string name, double weight) {
+UnitProduct::UnitProduct(int ID, std::string name, double weight) {
     Product::ID = ID;
     _amount = 0;
     _name = name;
     _weight = weight;
 }
 
-void Towar::printProduct() const {
+void UnitProduct::printProduct() const {
     std::cout << std::left << std::setw(4) << Product::ID;
     std::cout << std::left << std::setw(32) << _name;
     std::cout << std::left << std::setw(20) << _weight;
     std::cout << std::left  << _amount << '\n';
 }
 
-double Towar::increaseAmount(double count) {
+double UnitProduct::increaseAmount(double count) {
     _amount += static_cast<int>(count);
     return count;
 }
 
 
-double Towar::decreaseAmount(double count) {
+double UnitProduct::decreaseAmount(double count) {
     _amount -=static_cast<int>(count);
     return count;}
 
-double Towar::setAmount(double count) {
+double UnitProduct::setAmount(double count) {
     _amount = static_cast<int>(count);
     return count;
 }
 
-Product *Towar::split(double count) {
+Product *UnitProduct::split(double count) {
     this->_amount -= static_cast<int>(count);
-    auto* newTowar = new Towar(this->Product::ID, this->_name, this->_weight);
+    auto* newTowar = new UnitProduct(this->Product::ID, this->_name, this->_weight);
     newTowar->setAmount(count);
     return newTowar;
 }
 
-void Towar::merge(Product *product) {
+void UnitProduct::merge(Product *product) {
     this->_amount += static_cast<int>(product->fetchAmount());
     delete product;
 }
