@@ -1,5 +1,9 @@
 "# Warehouse"
 -
+
+Użytkownik może zdecydować się na przekazanie do argumentów programu pliku z gotową listą instrukcji. Jeżeli go nie poda to program pozwoli mu na wczytanie danych z klawiatury.
+
+ 
 Po włączeniu programu użytkownik dostaje menu z pięcioma opcjami obsługi magazynu. (0-5)
 
 Zaczynając od '0' - kończy ona program.

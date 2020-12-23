@@ -1,6 +1,6 @@
 #include "Warehouse.h"
 
-int Warehouse::_counter_ID = 0;
+int Warehouse::_productIDCounter = 0;
 
 
 Warehouse::Warehouse(int ID) {

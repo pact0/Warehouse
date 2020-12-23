@@ -3,14 +3,14 @@
 #include "PalletTruck.h"
 class Warehouse {
     std::vector<Product*> _products;
-    static int _counter_ID;
+    static int _productIDCounter;
     int _ID;
 public:
     explicit Warehouse(int ID);
     ~Warehouse();
 
     enum class manipulateProducts{increase, decrease, set};
-    static int fetchProductID() { return _counter_ID++;};
+    int fetchProductID() { return _productIDCounter++;};
 
     double fetchProductWeight(int idx) const { return _products[idx]->fetchWeight(); };
     int fetchProductAmount(int idx) const { return _products[idx]->fetchAmount(); };

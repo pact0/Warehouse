@@ -5,30 +5,30 @@
 #include <iostream>
 #include <fstream>
 
-void menuMagazyn(std::vector<Warehouse>& warehouses);
-void menuProdukt(std::vector<Warehouse>& warehouses);
-void menuPaleciak(std::vector<Warehouse>& warehouses, std::vector<PalletTruck>& palletTrucks);
-void printWarehouses(std::vector<Warehouse>& warehouses);
-int choosePalletTruck(std::vector<PalletTruck> &palletTrucks);
-int chooseWarehouse(std::vector<Warehouse>& warehouses);
-void printPalletTrucks(std::vector<PalletTruck>& palletTrucks);
-int findWarehouse(std::vector<Warehouse>& warehouses, int ID);
+void menuPalletTruck(std::vector<Warehouse*>& warehouses, std::vector<PalletTruck*>& palletTrucks);
+void menuWarehouse(std::vector<Warehouse*>& warehouses);
+void menuProduct(std::vector<Warehouse*>& warehouses);
+void printWarehouses(std::vector<Warehouse*>& warehouses);
+int choosePalletTruck(std::vector<PalletTruck*> &palletTrucks);
+int chooseWarehouse(std::vector<Warehouse*>& warehouses);
+void printPalletTrucks(std::vector<PalletTruck*>& palletTrucks);
+int findWarehouse(std::vector<Warehouse*>& warehouses, int ID);
 void receive(Warehouse& warehouse);
 void dispense(Warehouse& warehouse);
-
 std::string readString();
+double readDouble();
 int readInt();
 
 std::basic_istream<char> *input;
 
 
 int main(int argc, char** argv) {
-    freopen("C:\\Users\\Kuba\\Documents\\Warehouse\\stdin.txt","r",stdin);
+    //freopen(argv[1],"r",stdin);
 
     input = &std::cin;
-    if ( argc > 0) {
+    if ( argc ==2) {
         for (int i = 0; i < argc; ++i) {
-            if ((std::string(argv[i]) == "--file" || std::string(argv[i]) == "-f") && i + 1 < argc) {
+            if ( i + 1 < argc) {
                 auto file = new std::ifstream(argv[i + 1], std::ios_base::in);
                 if (!file->is_open()) {
                     std::cerr << "No such file" << argv[i + 1] << std::endl;
@@ -38,12 +38,12 @@ int main(int argc, char** argv) {
             }
         }
     }
-    std::vector<Warehouse> warehouses;
-    std::vector<PalletTruck> palletTrucks;
-    int choice = 0;
+    std::vector<Warehouse*> warehouses;
+    std::vector<PalletTruck*> palletTrucks;
+    int choice;
 
     do {
-        std::cout <<"\n---====== MENU =====---\n"
+        std::cout <<"\n---===== MENU =====---\n"
                     "0: Wychodzi z programu.\n"
                     "1: Zarzadzaj magazynami.\n"
                     "2: Zarzadzaj paleciakami.\n"
@@ -57,10 +57,10 @@ int main(int argc, char** argv) {
                 std::cout << "Koniec programu." << '\n';
                 break;
             case 1:
-                menuMagazyn(warehouses);
+                menuWarehouse(warehouses);
                 break;
             case 2:
-                menuPaleciak(warehouses, palletTrucks);
+                menuPalletTruck(warehouses, palletTrucks);
                 break;
             case 3:
                 printWarehouses(warehouses);
@@ -79,24 +79,24 @@ int main(int argc, char** argv) {
 
 int readInt() {
     std::string line;
-    std::getline(std::cin, line);
-    return atoi(line.c_str());
+    std::getline(*input, line);
+    return std::stoi(line);
 }
 
 double readDouble() {
     std::string line;
-    std::getline(std::cin, line);
-    return atof(line.c_str());
+    std::getline(*input, line);
+    return std::stod(line);
 }
 
 std::string readString() {
     std::string line;
-    std::getline(std::cin, line);
+    std::getline(*input, line);
     return line;
 }
 
-void menuProdukt(std::vector<Warehouse>& warehouses){
-    int choice = 0;
+void menuProduct(std::vector<Warehouse*>& warehouses){
+    int choice;
     if(warehouses.empty() ){
         std::cerr << "Najpierw stworz magazyn!\n";
         return;
@@ -104,7 +104,7 @@ void menuProdukt(std::vector<Warehouse>& warehouses){
     int which = chooseWarehouse(warehouses);
     std::string name;
     do {
-        std::cout <<"\n---====== MENU ZARZADANIA PRODUKTAMI =====---\n"
+        std::cout <<"\n---===== MENU ZARZADANIA PRODUKTAMI =====---\n"
                     "0: Wychodzi z menu zarzadzania produktami.\n"
                     "1: Stworz produkt.\n"
                     "2: Zmien produkt.\n"
@@ -118,7 +118,7 @@ void menuProdukt(std::vector<Warehouse>& warehouses){
                 std::cout << "\nWracam do menu.\n";
                 break;
             case 1:
-                std::cout <<"\n---====== TWORZENIE PRODUKTU =====---\n"
+                std::cout <<"\n---===== TWORZENIE PRODUKTU =====---\n"
                             "Jaki typ prduktu chcesz stworzyc?\n"
                             "0: Towar.\n"
                             "1: Towar Sypki.\n"
@@ -129,24 +129,24 @@ void menuProdukt(std::vector<Warehouse>& warehouses){
                         std::cout << "Podaj nazwe produktu.\n";
                         name = readString();
                         std::cout << "Podaj wage pojedynczego produktu w kg.\n";
-                        warehouses[which].addProduct(new Towar(warehouses[which].fetchProductID(),  name, readDouble()));
+                        warehouses[which]->addProduct(new Towar(warehouses[which]->fetchProductID(),  name, readDouble()));
                         break;
                     case 1:
                         std::cout << "Podaj nazwe produktu.\n";
-                        warehouses[which].addProduct(new TowarSypki(warehouses[which].fetchProductID(), readString()));
+                        warehouses[which]->addProduct(new TowarSypki(warehouses[which]->fetchProductID(), readString(), 1));
                         break;
                     case 2:
                         std::cout << "Podaj nazwe produktu.\n";
                         name = readString();
                         std::cout << "Podaj wage jednego litra produktu w kg.\n";
-                        warehouses[which].addProduct(new TowarCiekly(warehouses[which].fetchProductID(), name, readDouble() ));
+                        warehouses[which]->addProduct(new TowarCiekly(warehouses[which]->fetchProductID(), name, readDouble() ));
                         break;
                     default :
                         std::cerr << "Podaj poprawna wartosc(0-2)!" << '\n';
                 }
                 break;
             case 2:
-                std::cout <<"\n---====== ZARZADZANIE TOWAREM =====---\n"
+                std::cout <<"\n---===== ZARZADZANIE TOWAREM =====---\n"
                             "Co chcesz zrobic z towarami?\n"
                             "0: Wroc do poprzedniego menu.\n"
                             "1: Dodaj towar.\n"
@@ -159,26 +159,26 @@ void menuProdukt(std::vector<Warehouse>& warehouses){
                         std::cout << "\nWracam do poprzedniego menu.\n";
                         break;
                     case 1:
-                        if (warehouses[which].fetchProductCount() > 0)
-                            receive(warehouses[which]);
+                        if (warehouses[which]->fetchProductCount() > 0)
+                            receive(*warehouses[which]);
                         else
                             std::cerr << "\nNajpierw dodaj towar!" << '\n';
                         break;
 
                     case 2:
-                        if (warehouses[which].fetchProductCount() > 0)
-                            dispense(warehouses[which]);
+                        if (warehouses[which]->fetchProductCount() > 0)
+                            dispense(*warehouses[which]);
                         else
                             std::cerr << "Najpierw dodaj towar!" << '\n';
                         break;
                     case 3:
-                        warehouses[which].printWarehouse();
+                        warehouses[which]->printWarehouse();
                         break;
                     default :
                         std::cerr << "Podaj poprawna wartosc()!" << '\n';
                 }
             case 3:
-                warehouses[which].printWarehouse();
+                warehouses[which]->printWarehouse();
                 break;
             case 4:
                 which = chooseWarehouse(warehouses);
@@ -190,13 +190,13 @@ void menuProdukt(std::vector<Warehouse>& warehouses){
 
 }
 
-void menuMagazyn(std::vector<Warehouse>& warehouses){
-    int choice = 0;
+void menuWarehouse(std::vector<Warehouse*>& warehouses){
+    int choice;
     static int warehouseID = 0;
     int i;
     int index;
     do {
-        std::cout <<"\n---====== MENU ZARZADZANIA MAGAZYNAMI =====---\n"
+        std::cout <<"\n---===== MENU ZARZADZANIA MAGAZYNAMI =====---\n"
                     "0: Wychodzi z menu zarzadzania magazynami.\n"
                     "1: Utworz magazyn.\n"
                     "2: Zarzadzaj produktami w magazynie.\n"
@@ -209,10 +209,10 @@ void menuMagazyn(std::vector<Warehouse>& warehouses){
                 break;
             case 1:
                 std::cout << "Tworze magazyn.\n";
-                warehouses.emplace_back(warehouseID++);
+                warehouses.push_back( new Warehouse(warehouseID++) );
                 break;
             case 2:
-                menuProdukt(warehouses);
+                menuProduct(warehouses);
                 break;
             case 3:
                 if(warehouses.empty() ){
@@ -221,7 +221,7 @@ void menuMagazyn(std::vector<Warehouse>& warehouses){
                 }
                 std::cout << "Ktory magazyn chcesz wypisac?\n" << "Dostepne ID:" << '\t';
                 for (auto & warehouse : warehouses){
-                    std::cout << warehouse.fetchID() << "  ";
+                    std::cout << warehouse->fetchID() << "  ";
                 }
                 std::cout << "Podaj ID: ";
                 i = readInt();
@@ -230,7 +230,7 @@ void menuMagazyn(std::vector<Warehouse>& warehouses){
                 if (index == -1)
                     std::cerr << "Nie udalo sie znalezc magazynu z takim ID.\n";
                 else
-                    warehouses[index].printWarehouse();
+                    warehouses[index]->printWarehouse();
                 break;
             default :
                 std::cerr << "Podaj poprawna wartosc(0-2)!" << '\n';
@@ -238,15 +238,15 @@ void menuMagazyn(std::vector<Warehouse>& warehouses){
     }while(choice != 0);
 }
 
-void menuPaleciak(std::vector<Warehouse>& warehouses, std::vector<PalletTruck>& palletTrucks){
-    int choice = 0;
-    int i = 0;
+void menuPalletTruck(std::vector<Warehouse*>& warehouses, std::vector<PalletTruck*>& palletTrucks){
+    int choice;
+    int i;
     int ID;
-    int which = 0;
+    int which;
     int howMany;
     double howMuch;
     do {
-        std::cout << "\n---====== MENU ZARZADZANIA PALECIAKAMI =====---\n"
+        std::cout << "\n---===== MENU ZARZADZANIA PALECIAKAMI =====---\n"
                      "0: Wychodzi z menu zarzadzania paleciakami.\n"
                      "1: Utworz paleciak.\n"
                      "2: Zaladuj paleciak.\n"
@@ -263,7 +263,7 @@ void menuPaleciak(std::vector<Warehouse>& warehouses, std::vector<PalletTruck>& 
                     std::cout << "\nPodaj maksymalny udzwig w kg.\n";
                     howMuch = readDouble();
                 }while(howMuch <= 0 && ( std::cerr << "Podaj odpowiednia wartosc(wieksza od 0)!" << '\n', 1) );
-                palletTrucks.emplace_back(howMuch);
+                palletTrucks.push_back( new PalletTruck(howMuch) );
                 break;
             case 2:
                 if(warehouses.empty() ){
@@ -271,31 +271,31 @@ void menuPaleciak(std::vector<Warehouse>& warehouses, std::vector<PalletTruck>& 
                     break;
                 }
                 which = chooseWarehouse(warehouses);
-                if( warehouses[which].isEmpty() ) {
+                if( warehouses[which]->isEmpty() ) {
                     std::cerr << "Magazyn jest pusty, najpierw dodaj tam produkty.\n";
                     break;
                 }
                 std::cout << "Ktory paleciak zaladowac?\n";
                 i = choosePalletTruck(palletTrucks);
                 std::cout << "\nWybierz produkt.\n";
-                warehouses[which].printWarehouse();
+                warehouses[which]->printWarehouse();
                 std::cout << "Podaj ID: ";
                 ID = readInt();
                 std::cout << '\n';
 
                 do {
-                    std::cout << "Ile chcesz zaladowac?\n" << "Dostepna ilosc produktu: " << warehouses[which].fetchProductAmount(warehouses[which].findProductByID(ID))
-                              << " Kazdy produkt wazy " << warehouses[which].fetchProductWeight(warehouses[which].findProductByID(ID)) << "kg" << '\n';
+                    std::cout << "Ile chcesz zaladowac?\n" << "Dostepna ilosc produktu: " << warehouses[which]->fetchProductAmount(warehouses[which]->findProductByID(ID))
+                              << " Kazdy produkt wazy " << warehouses[which]->fetchProductWeight(warehouses[which]->findProductByID(ID)) << "kg" << '\n';
                     std::cout << "Podaj w sztukach: ";
                     howMany = readInt();
-                    howMuch = howMany *  warehouses[which].fetchProductWeight(warehouses[which].findProductByID(ID));
+                    howMuch = howMany *  warehouses[which]->fetchProductWeight(warehouses[which]->findProductByID(ID));
                     std::cout << "\nProbuje zaladowac " << howMuch << "kg produktu." << '\n';
 
-                    if( howMany < 0 || palletTrucks[i].fetchMaximumLoad()  < howMuch  || howMany > warehouses[which].fetchProductAmount(warehouses[which].findProductByID(ID)))
-                        howMuch = palletTrucks[i].fetchMaximumLoad() + 1;
-                }while(howMuch > palletTrucks[i].fetchMaximumLoad() &&
-                       ( std::cerr << "Podaj odpowiednia wartosc( niemniejsza od 0 i mniejsza od maksymalnego udzwigu)!" << '\n', 1) );
-                warehouses[which].sendProduct(&palletTrucks[i], ID, howMany);
+                    if( howMany < 0 || palletTrucks[i]->fetchMaximumLoad()  < howMuch  || howMany > warehouses[which]->fetchProductAmount(warehouses[which]->findProductByID(ID)))
+                        howMuch = palletTrucks[i]->fetchMaximumLoad() + 1;
+                }while(howMuch + palletTrucks[i]->fetchCurrentLoad() > palletTrucks[i]->fetchMaximumLoad() &&
+                       ( std::cerr << "Podaj odpowiednia wartosc( niemniejsza od 0 i taka aby po zaladowaniu nie nie przekraczala maksymalnego udzwigu)!" << '\n', 1) );
+                warehouses[which]->sendProduct(palletTrucks[i], ID, howMany);
                 std::cout << "Udalo sie zaladowac towar.\n";
                 break;
             case 3:
@@ -307,16 +307,16 @@ void menuPaleciak(std::vector<Warehouse>& warehouses, std::vector<PalletTruck>& 
                 std::cout << "Ktory paleciak rozladowac?\n";
                 i = choosePalletTruck(palletTrucks);
                 std::cout << "\nWybierz produkt.\n";
-                palletTrucks[i].printPaleciak();
+                palletTrucks[i]->printPaleciak();
                 std::cout << "Podaj ID: ";
                 ID = readInt();
                 std::cout << "\nIle chcesz rozladowac?\n";
                 do {
                     howMany = readInt();
-                    if( howMany < 0 || howMany > palletTrucks[i].fetchProductAmount(palletTrucks[i].findProductByID(ID))) howMany = palletTrucks[i].fetchMaximumLoad() + 1;
-                }while(howMany > palletTrucks[i].fetchProductAmount(palletTrucks[i].findProductByID(ID)) &&
+                    if( howMany < 0 || howMany > palletTrucks[i]->fetchProductAmount(palletTrucks[i]->findProductByID(ID))) howMany = static_cast<int>(palletTrucks[i]->fetchMaximumLoad()) + 10;
+                }while(howMany > palletTrucks[i]->fetchProductAmount(palletTrucks[i]->findProductByID(ID)) &&
                        ( std::cerr << "Podaj odpowiednia wartosc( wieksza od 0 i nie wieksza od maksymalnego ciezaru produktu)!" << '\n', 1) );
-                warehouses[which].collect(&palletTrucks[i], ID, howMany);
+                warehouses[which]->collect(palletTrucks[i], ID, howMany);
                 break;
             case 4:
                 printPalletTrucks(palletTrucks);
@@ -328,26 +328,26 @@ void menuPaleciak(std::vector<Warehouse>& warehouses, std::vector<PalletTruck>& 
     }while(choice != 0);
 }
 
-void printPalletTrucks(std::vector<PalletTruck>& palletTrucks){
+void printPalletTrucks(std::vector<PalletTruck*>& palletTrucks){
     if( palletTrucks.empty())
         std::cerr << "Nie stowrzyles jeszcze zadnego paleciaka.\n";
     for(auto & palletTruck : palletTrucks) {
-        palletTruck.printPaleciak();
+        palletTruck->printPaleciak();
     }
 }
 
-void printWarehouses(std::vector<Warehouse>& warehouses){
+void printWarehouses(std::vector<Warehouse*>& warehouses){
     if( warehouses.empty())
         std::cerr << "Nie stowrzyles jeszcze zadnego magazynu.\n";
 
     for (auto& item : warehouses){
-        item.printWarehouse();
+        item->printWarehouse();
     }
 }
 
-int findWarehouse(std::vector<Warehouse>& warehouses, int ID) {
+int findWarehouse(std::vector<Warehouse*>& warehouses, int ID) {
     for (int i = 0; i < warehouses.size(); ++i) {
-        if (warehouses[i].fetchID() == ID)
+        if (warehouses[i]->fetchID() == ID)
             return i;
     }
     return -1;
@@ -406,9 +406,9 @@ void dispense(Warehouse& warehouse ) {
         std::cout << "Ilosc towarow to 0. Nie mozna nic odjac." << '\n';
 }
 
-int chooseWarehouse(std::vector<Warehouse> &warehouses) {
-    unsigned int which = 0;
-    int check = 0;
+int chooseWarehouse(std::vector<Warehouse*>& warehouses) {
+    int which;
+    int check;
     std::cout << "\nNa ktorym magazynie chcesz pracowac?" << '\n';
     printWarehouses(warehouses);
     do {
@@ -417,18 +417,18 @@ int chooseWarehouse(std::vector<Warehouse> &warehouses) {
         which = readInt();
         std::cout << '\n';
         for (auto & warehouse : warehouses){
-            if( which == warehouse.fetchWarehouseID() )
+            if( which == warehouse->fetchWarehouseID() )
                 check = 1;
         }
-        if( check == 0 ) which = warehouses.size() + 1;
+        if( check == 0 ) which = static_cast<int>(warehouses.size()) + 1;
 
     }while(which > warehouses.size() && ( std::cerr << "Podaj odpowiednia wartosc!" << '\n', 1) );
     return which;
 }
 
-int choosePalletTruck(std::vector<PalletTruck> &palletTrucks) {
-    unsigned int which = 0;
-    int check = 0;
+int choosePalletTruck(std::vector<PalletTruck*>& palletTrucks) {
+    int which;
+    int check;
     printPalletTrucks(palletTrucks);
     do {
         check = 0;
@@ -436,10 +436,10 @@ int choosePalletTruck(std::vector<PalletTruck> &palletTrucks) {
         which = readInt();
         std::cout << '\n';
         for (auto & warehouse : palletTrucks){
-            if( which == warehouse.fetchPalletID() )
+            if( which == warehouse->fetchPalletID() )
                 check = 1;
         }
-        if( check == 0 ) which = palletTrucks.size() + 1;
+        if( check == 0 ) which = static_cast<int>(palletTrucks.size()) + 1;
 
     }while(which > palletTrucks.size() && ( std::cerr << "Podaj odpowiednia wartosc!" << '\n', 1) );
     return which;

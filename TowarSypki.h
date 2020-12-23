@@ -10,7 +10,7 @@ public:
 
     std::string fetchName() const override { return _name; };
     double fetchAmount() const override { return _amount; };
-    double fetchWeight() const override { return _amount; };
+    double fetchWeight() const override { return _weight; };
     void printProduct() const override;
 
     double increaseAmount(double count) override;   // zwieksza ilosc o count, zwraca ilosc dodanych towarow

@@ -28,7 +28,6 @@ Product* PalletTruck::unLoadProduct(int idx, int howMuch) {
         delete _products[idx];
         _products.erase(_products.begin()+idx);
     }
-
     return newProduct;
 }
 
