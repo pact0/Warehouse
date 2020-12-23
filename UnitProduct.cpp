@@ -1,9 +1,11 @@
 #include "UnitProduct.h"
 
+#include <utility>
+
 UnitProduct::UnitProduct(int ID, std::string name, double weight) {
     Product::ID = ID;
     _amount = 0;
-    _name = name;
+    _name = std::move(name);
     _weight = weight;
 }
 

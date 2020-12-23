@@ -212,7 +212,7 @@ void menuPalletTruck(std::vector<Warehouse*>& warehouses, std::vector<PalletTruc
                 std::cout << "Ktory paleciak rozladowac?\n";
                 i = choosePalletTruck(palletTrucks);
                 std::cout << "\nWybierz produkt.\n";
-                palletTrucks[i]->printPaleciak();
+                palletTrucks[i]->printPalletTruck();
                 std::cout << "Podaj ID: ";
                 ID = readInt();
                 std::cout << "\nIle chcesz rozladowac?\n";
@@ -237,7 +237,7 @@ void printPalletTrucks(std::vector<PalletTruck*>& palletTrucks){
     if( palletTrucks.empty())
         std::cerr << "Nie stowrzyles jeszcze zadnego paleciaka.\n";
     for(auto & palletTruck : palletTrucks) {
-        palletTruck->printPaleciak();
+        palletTruck->printPalletTruck();
     }
 }
 

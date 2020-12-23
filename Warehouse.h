@@ -13,7 +13,7 @@ public:
     int fetchProductID() { return _productIDCounter++;};
 
     double fetchProductWeight(int idx) const { return _products[idx]->fetchWeight(); };
-    int fetchProductAmount(int idx) const { return _products[idx]->fetchAmount(); };
+    double fetchProductAmount(int idx) const { return _products[idx]->fetchAmount(); };
     int fetchProductCount() const { return _products.size(); };
     int isEmpty() const { return _products.empty();};
     int fetchWarehouseID() const { return _ID;};

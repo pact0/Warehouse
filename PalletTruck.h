@@ -16,7 +16,7 @@ public:
     double fetchCurrentLoad() const { return _currentLoad; };
     double fetchProductAmount(int ID) const { return _products[ID]->fetchAmount();};
     int fetchPalletID() const { return _ID;};
-    void printPaleciak() const;
+    void printPalletTruck() const;
 
     int findProductByID(int ID);
     Product* unLoadProduct(int idx, int howMuch);

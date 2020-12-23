@@ -2,6 +2,23 @@
 
 std::basic_istream<char> *input;
 
+int readInt() {
+    std::string line;
+    std::getline(*input, line);
+    return std::stoi(line);
+}
+
+double readDouble() {
+    std::string line;
+    std::getline(*input, line);
+    return std::stod(line);
+}
+
+std::string readString() {
+    std::string line;
+    std::getline(*input, line);
+    return line;
+}
 
 int main(int argc, char** argv) {
     //freopen(argv[1],"r",stdin);
@@ -22,7 +39,6 @@ int main(int argc, char** argv) {
     std::vector<Warehouse*> warehouses;
     std::vector<PalletTruck*> palletTrucks;
     int choice;
-
     do {
         std::cout <<"\n---===== MENU =====---\n"
                     "0: Wychodzi z programu.\n"
@@ -54,25 +70,6 @@ int main(int argc, char** argv) {
         }
     }while(choice != 0);
 
+    warehouses.clear();
+    palletTrucks.clear();
 }
-
-
-
-int readInt() {
-    std::string line;
-    std::getline(*input, line);
-    return std::stoi(line);
-}
-
-double readDouble() {
-    std::string line;
-    std::getline(*input, line);
-    return std::stod(line);
-}
-
-std::string readString() {
-    std::string line;
-    std::getline(*input, line);
-    return line;
-}
-

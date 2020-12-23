@@ -37,7 +37,7 @@ int PalletTruck::findProductByID(int ID) {
     return -1;
 }
 
-void PalletTruck::printPaleciak() const {
+void PalletTruck::printPalletTruck() const {
     std::cout << "-------------------------PALECIAK ID_" <<  _ID << "-----------------------" << '\n';
     std::cout << "Maksymalny udzwig: " << _maximumLoad << '\n';
     std::cout << "Obecny udzwig: " << _currentLoad << '\n';

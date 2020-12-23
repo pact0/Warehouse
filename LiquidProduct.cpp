@@ -4,7 +4,7 @@ LiquidProduct::LiquidProduct(int ID, std::string name, double weight) {
     Product::ID = ID;
     _weight = weight;
     _amount = 0;
-    _name = name;
+    _name = std::move(name);
 }
 
 void LiquidProduct::printProduct() const {
@@ -31,7 +31,7 @@ double LiquidProduct::setAmount(double count) {
 
 Product *LiquidProduct::split(double count) {
     this->_amount -= static_cast<int>(count);
-    LiquidProduct* newTowar = new LiquidProduct(this->Product::ID, this->_name, this->_weight);
+    auto* newTowar = new LiquidProduct(this->Product::ID, this->_name, this->_weight);
     newTowar->setAmount(count);
     return newTowar;
 }
