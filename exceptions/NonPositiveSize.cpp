@@ -1,4 +1,5 @@
-//
-// Created by Kuba on 1/11/2021.
-//
+#include "NonPositiveSize.h"
 
+NonPositiveSize::NonPositiveSize(int index) {
+    std::cerr << "Non positive size: " << index << '\n';
+}

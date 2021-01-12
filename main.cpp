@@ -1,4 +1,5 @@
 #include "helperFun.h"
+#include "basic_vector.h"
 
 std::basic_istream<char> *input;
 
@@ -22,7 +23,27 @@ std::string readString() {
 
 int main(int argc, char** argv) {
     //freopen(argv[1],"r",stdin);
-
+//    LiquidProduct prod(0, "A", 10);
+//    LiquidProduct prod2(1, "B", 10);
+//    basic_vector<LiquidProduct> prod_vec(2);
+//    //prod.printProduct();
+//    prod_vec.push_back(prod);
+//    prod_vec.push_back(prod2);
+//
+//
+//    for (auto &item : prod_vec) {
+//        std::cout<< item.fetchWeight() << '\n';
+//        item.printProduct();
+//    }
+//
+//    prod_vec.pop_back();
+//
+//    for (auto &item : prod_vec) {
+//
+//        std::cout<< item.fetchWeight() << "POOP" << '\n';
+//        item.printProduct();
+//    }
+//    return 1;
     input = &std::cin;
     if ( argc ==2) {
         for (int i = 0; i < argc; ++i) {
@@ -36,8 +57,8 @@ int main(int argc, char** argv) {
             }
         }
     }
-    std::vector<Warehouse*> warehouses;
-    std::vector<PalletTruck*> palletTrucks;
+    basic_vector<Warehouse*> warehouses;
+    basic_vector<PalletTruck*> palletTrucks;
     int choice;
     do {
         std::cout <<"\n---===== MENU =====---\n"
@@ -54,16 +75,35 @@ int main(int argc, char** argv) {
                 std::cout << "Koniec programu." << '\n';
                 break;
             case 1:
+                try {
                 menuWarehouse(warehouses);
+                }catch (const NoWarehouseException &){
+                    break;
+                }
                 break;
             case 2:
+                try {
                 menuPalletTruck(warehouses, palletTrucks);
+                } catch (const NoWarehouseException&) {
+                }
+                catch(const EmptyWarehouseException&) {
+                }
+                catch (const NoPalletTruckException&){
+                }
                 break;
             case 3:
+                try {
                 printWarehouses(warehouses);
+                }catch (const NoWarehouseException&){
+
+                }
                 break;
             case 4:
+                try{
                 printPalletTrucks(palletTrucks);
+                }catch (const NoPalletTruckException&){
+
+                }
                 break;
             default:
                 std::cerr << "Podaj poprawna wartosc(0-4)!" << '\n';

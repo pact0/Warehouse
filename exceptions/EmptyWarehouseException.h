@@ -1,8 +1,7 @@
-//
-// Created by Kuba on 1/11/2021.
-//
+#pragma once
+#include <iostream>
 
-#ifndef WAREHOUSE_EMPTYWAREHOUSEEXCEPTION_H
-#define WAREHOUSE_EMPTYWAREHOUSEEXCEPTION_H
-
-#endif //WAREHOUSE_EMPTYWAREHOUSEEXCEPTION_H
+class EmptyWarehouseException : std::exception {
+public:
+    EmptyWarehouseException();
+};

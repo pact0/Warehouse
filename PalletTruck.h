@@ -3,7 +3,7 @@
 
 
 class PalletTruck {
-    std::vector<Product*> _products;
+    basic_vector<Product*> _products;
     int _ID;
     double _maximumLoad;
     double _currentLoad{};

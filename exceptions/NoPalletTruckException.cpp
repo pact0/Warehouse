@@ -1,4 +1,5 @@
-//
-// Created by Kuba on 1/11/2021.
-//
+#include "NoPalletTruckException.h"
 
+NoPalletTruckException::NoPalletTruckException() {
+    std::cerr << "No pallet truck created." << '\n';
+}

@@ -43,19 +43,19 @@ NULL=nul
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Kuba\Documents\Warehouse
+CMAKE_SOURCE_DIR = C:\Users\Kuba\Warehouse
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Kuba\Documents\Warehouse\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Kuba\Warehouse\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = C:\Users\Kuba\Documents\Warehouse\cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	echo >nul && "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	echo >nul && "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -74,7 +74,7 @@ edit_cache\fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	echo >nul && "C:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	echo >nul && "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -84,9 +84,9 @@ rebuild_cache\fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kuba\Documents\Warehouse\cmake-build-debug\CMakeFiles C:\Users\Kuba\Documents\Warehouse\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kuba\Warehouse\cmake-build-debug\CMakeFiles C:\Users\Kuba\Warehouse\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kuba\Documents\Warehouse\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Kuba\Warehouse\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -289,6 +289,168 @@ Warehouse.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\Warehouse.cpp.s
 .PHONY : Warehouse.cpp.s
 
+basic_vector.obj: basic_vector.cpp.obj
+
+.PHONY : basic_vector.obj
+
+# target to build an object file
+basic_vector.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\basic_vector.cpp.obj
+.PHONY : basic_vector.cpp.obj
+
+basic_vector.i: basic_vector.cpp.i
+
+.PHONY : basic_vector.i
+
+# target to preprocess a source file
+basic_vector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\basic_vector.cpp.i
+.PHONY : basic_vector.cpp.i
+
+basic_vector.s: basic_vector.cpp.s
+
+.PHONY : basic_vector.s
+
+# target to generate assembly for a file
+basic_vector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\basic_vector.cpp.s
+.PHONY : basic_vector.cpp.s
+
+exceptions\EmptyWarehouseException.obj: exceptions\EmptyWarehouseException.cpp.obj
+
+.PHONY : exceptions\EmptyWarehouseException.obj
+
+# target to build an object file
+exceptions\EmptyWarehouseException.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\EmptyWarehouseException.cpp.obj
+.PHONY : exceptions\EmptyWarehouseException.cpp.obj
+
+exceptions\EmptyWarehouseException.i: exceptions\EmptyWarehouseException.cpp.i
+
+.PHONY : exceptions\EmptyWarehouseException.i
+
+# target to preprocess a source file
+exceptions\EmptyWarehouseException.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\EmptyWarehouseException.cpp.i
+.PHONY : exceptions\EmptyWarehouseException.cpp.i
+
+exceptions\EmptyWarehouseException.s: exceptions\EmptyWarehouseException.cpp.s
+
+.PHONY : exceptions\EmptyWarehouseException.s
+
+# target to generate assembly for a file
+exceptions\EmptyWarehouseException.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\EmptyWarehouseException.cpp.s
+.PHONY : exceptions\EmptyWarehouseException.cpp.s
+
+exceptions\NoPalletTruckException.obj: exceptions\NoPalletTruckException.cpp.obj
+
+.PHONY : exceptions\NoPalletTruckException.obj
+
+# target to build an object file
+exceptions\NoPalletTruckException.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\NoPalletTruckException.cpp.obj
+.PHONY : exceptions\NoPalletTruckException.cpp.obj
+
+exceptions\NoPalletTruckException.i: exceptions\NoPalletTruckException.cpp.i
+
+.PHONY : exceptions\NoPalletTruckException.i
+
+# target to preprocess a source file
+exceptions\NoPalletTruckException.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\NoPalletTruckException.cpp.i
+.PHONY : exceptions\NoPalletTruckException.cpp.i
+
+exceptions\NoPalletTruckException.s: exceptions\NoPalletTruckException.cpp.s
+
+.PHONY : exceptions\NoPalletTruckException.s
+
+# target to generate assembly for a file
+exceptions\NoPalletTruckException.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\NoPalletTruckException.cpp.s
+.PHONY : exceptions\NoPalletTruckException.cpp.s
+
+exceptions\NoWarehouseException.obj: exceptions\NoWarehouseException.cpp.obj
+
+.PHONY : exceptions\NoWarehouseException.obj
+
+# target to build an object file
+exceptions\NoWarehouseException.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\NoWarehouseException.cpp.obj
+.PHONY : exceptions\NoWarehouseException.cpp.obj
+
+exceptions\NoWarehouseException.i: exceptions\NoWarehouseException.cpp.i
+
+.PHONY : exceptions\NoWarehouseException.i
+
+# target to preprocess a source file
+exceptions\NoWarehouseException.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\NoWarehouseException.cpp.i
+.PHONY : exceptions\NoWarehouseException.cpp.i
+
+exceptions\NoWarehouseException.s: exceptions\NoWarehouseException.cpp.s
+
+.PHONY : exceptions\NoWarehouseException.s
+
+# target to generate assembly for a file
+exceptions\NoWarehouseException.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\NoWarehouseException.cpp.s
+.PHONY : exceptions\NoWarehouseException.cpp.s
+
+exceptions\NonPositiveSize.obj: exceptions\NonPositiveSize.cpp.obj
+
+.PHONY : exceptions\NonPositiveSize.obj
+
+# target to build an object file
+exceptions\NonPositiveSize.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\NonPositiveSize.cpp.obj
+.PHONY : exceptions\NonPositiveSize.cpp.obj
+
+exceptions\NonPositiveSize.i: exceptions\NonPositiveSize.cpp.i
+
+.PHONY : exceptions\NonPositiveSize.i
+
+# target to preprocess a source file
+exceptions\NonPositiveSize.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\NonPositiveSize.cpp.i
+.PHONY : exceptions\NonPositiveSize.cpp.i
+
+exceptions\NonPositiveSize.s: exceptions\NonPositiveSize.cpp.s
+
+.PHONY : exceptions\NonPositiveSize.s
+
+# target to generate assembly for a file
+exceptions\NonPositiveSize.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\NonPositiveSize.cpp.s
+.PHONY : exceptions\NonPositiveSize.cpp.s
+
+exceptions\OutOfBoundsException.obj: exceptions\OutOfBoundsException.cpp.obj
+
+.PHONY : exceptions\OutOfBoundsException.obj
+
+# target to build an object file
+exceptions\OutOfBoundsException.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\OutOfBoundsException.cpp.obj
+.PHONY : exceptions\OutOfBoundsException.cpp.obj
+
+exceptions\OutOfBoundsException.i: exceptions\OutOfBoundsException.cpp.i
+
+.PHONY : exceptions\OutOfBoundsException.i
+
+# target to preprocess a source file
+exceptions\OutOfBoundsException.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\OutOfBoundsException.cpp.i
+.PHONY : exceptions\OutOfBoundsException.cpp.i
+
+exceptions\OutOfBoundsException.s: exceptions\OutOfBoundsException.cpp.s
+
+.PHONY : exceptions\OutOfBoundsException.s
+
+# target to generate assembly for a file
+exceptions\OutOfBoundsException.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Warehouse.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Warehouse.dir\exceptions\OutOfBoundsException.cpp.s
+.PHONY : exceptions\OutOfBoundsException.cpp.s
+
 helperFun.obj: helperFun.cpp.obj
 
 .PHONY : helperFun.obj
@@ -370,6 +532,24 @@ help:
 	@echo ... Warehouse.obj
 	@echo ... Warehouse.i
 	@echo ... Warehouse.s
+	@echo ... basic_vector.obj
+	@echo ... basic_vector.i
+	@echo ... basic_vector.s
+	@echo ... exceptions/EmptyWarehouseException.obj
+	@echo ... exceptions/EmptyWarehouseException.i
+	@echo ... exceptions/EmptyWarehouseException.s
+	@echo ... exceptions/NoPalletTruckException.obj
+	@echo ... exceptions/NoPalletTruckException.i
+	@echo ... exceptions/NoPalletTruckException.s
+	@echo ... exceptions/NoWarehouseException.obj
+	@echo ... exceptions/NoWarehouseException.i
+	@echo ... exceptions/NoWarehouseException.s
+	@echo ... exceptions/NonPositiveSize.obj
+	@echo ... exceptions/NonPositiveSize.i
+	@echo ... exceptions/NonPositiveSize.s
+	@echo ... exceptions/OutOfBoundsException.obj
+	@echo ... exceptions/OutOfBoundsException.i
+	@echo ... exceptions/OutOfBoundsException.s
 	@echo ... helperFun.obj
 	@echo ... helperFun.i
 	@echo ... helperFun.s

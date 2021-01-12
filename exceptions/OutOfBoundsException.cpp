@@ -1,4 +1,5 @@
-//
-// Created by Kuba on 1/11/2021.
-//
+#include "OutOfBoundsException.h"
 
+OutOfBoundsException::OutOfBoundsException(int index) {
+    std::cerr << "Wrong index: " << index << '\n';
+}

@@ -1,8 +1,7 @@
-//
-// Created by Kuba on 1/11/2021.
-//
+#pragma once
+#include <iostream>
 
-#ifndef WAREHOUSE_NONPOSITIVESIZE_H
-#define WAREHOUSE_NONPOSITIVESIZE_H
-
-#endif //WAREHOUSE_NONPOSITIVESIZE_H
+class NonPositiveSize : std::exception {
+public:
+    explicit NonPositiveSize(int index);
+};

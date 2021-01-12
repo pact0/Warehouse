@@ -2,7 +2,7 @@
 #include "Product.h"
 #include "PalletTruck.h"
 class Warehouse {
-    std::vector<Product*> _products;
+    basic_vector<Product*> _products;
     static int _productIDCounter;
     int _ID;
 public:

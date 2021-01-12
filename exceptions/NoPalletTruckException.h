@@ -1,8 +1,7 @@
-//
-// Created by Kuba on 1/11/2021.
-//
+#pragma once
+#include <iostream>
 
-#ifndef WAREHOUSE_NOPALLETTRUCKEXCEPTION_H
-#define WAREHOUSE_NOPALLETTRUCKEXCEPTION_H
-
-#endif //WAREHOUSE_NOPALLETTRUCKEXCEPTION_H
+class NoPalletTruckException : std::exception {
+public:
+    NoPalletTruckException();
+};

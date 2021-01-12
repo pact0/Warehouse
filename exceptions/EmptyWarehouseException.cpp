@@ -1,4 +1,5 @@
-//
-// Created by Kuba on 1/11/2021.
-//
+#include "EmptyWarehouseException.h"
 
+EmptyWarehouseException::EmptyWarehouseException() {
+    std::cerr << "Empty warehouse." << '\n';
+}

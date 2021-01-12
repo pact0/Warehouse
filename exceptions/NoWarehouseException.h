@@ -1,8 +1,7 @@
-//
-// Created by Kuba on 1/11/2021.
-//
+#pragma once
+#include <iostream>
 
-#ifndef WAREHOUSE_NOWAREHOUSEEXCEPTION_H
-#define WAREHOUSE_NOWAREHOUSEEXCEPTION_H
-
-#endif //WAREHOUSE_NOWAREHOUSEEXCEPTION_H
+class NoWarehouseException : std::exception {
+public:
+    NoWarehouseException();
+};

@@ -26,7 +26,7 @@ Product* PalletTruck::unLoadProduct(int idx, int howMuch) {
     Product* newProduct =_products[idx]->split(howMuch);
     if( _products[idx]->fetchAmount() == 0) {
         delete _products[idx];
-        _products.erase(_products.begin()+idx);
+        _products.clear();
     }
     return newProduct;
 }
