@@ -1,5 +1,4 @@
 #include "helperFun.h"
-#include "basic_vector.h"
 
 std::basic_istream<char> *input;
 
@@ -22,28 +21,6 @@ std::string readString() {
 }
 
 int main(int argc, char** argv) {
-    //freopen(argv[1],"r",stdin);
-//    LiquidProduct prod(0, "A", 10);
-//    LiquidProduct prod2(1, "B", 10);
-//    basic_vector<LiquidProduct> prod_vec(2);
-//    //prod.printProduct();
-//    prod_vec.push_back(prod);
-//    prod_vec.push_back(prod2);
-//
-//
-//    for (auto &item : prod_vec) {
-//        std::cout<< item.fetchWeight() << '\n';
-//        item.printProduct();
-//    }
-//
-//    prod_vec.pop_back();
-//
-//    for (auto &item : prod_vec) {
-//
-//        std::cout<< item.fetchWeight() << "POOP" << '\n';
-//        item.printProduct();
-//    }
-//    return 1;
     input = &std::cin;
     if ( argc ==2) {
         for (int i = 0; i < argc; ++i) {
@@ -78,23 +55,67 @@ int main(int argc, char** argv) {
                 try {
                 menuWarehouse(warehouses);
                 }catch (const NoWarehouseException &){
-                    break;
+                    std::cout << "Czy chcesz teraz stworzyc magazyn?\n"
+                                 "1: Tak.\n"
+                                 "0: Nie, wroc do glownego menu." << '\n';
+                    int temp = 0;
+                    do {
+                        temp = readInt();
+                        if( temp == 1 ){
+                            createWarehouse(warehouses);
+                            break;
+                        }
+                    }while(temp != 0);
                 }
                 break;
             case 2:
                 try {
                 menuPalletTruck(warehouses, palletTrucks);
-                } catch (const NoWarehouseException&) {
+                }catch (const NoWarehouseException&) {
+                    std::cout << "Czy chcesz teraz stworzyc magazyn?\n"
+                                 "1: Tak.\n"
+                                 "0: Nie, wroc do glownego menu." << '\n';
+                    int temp = 0;
+                    do {
+                        temp = readInt();
+                        if( temp == 1 ){
+                            createWarehouse(warehouses);
+                            break;
+                        }
+                    }while(temp != 0);
                 }
                 catch(const EmptyWarehouseException&) {
+                    std::cout << "Wracam do glownego menu." << '\n';
                 }
                 catch (const NoPalletTruckException&){
+                    std::cout << "Czy chcesz teraz stworzyc paleciak?\n"
+                                 "1: Tak.\n"
+                                 "0: Nie, wroc do glownego menu." << '\n';
+                    int temp = 0;
+                    do {
+                        temp = readInt();
+                        if( temp == 1 ){
+                            createPalletTruck(palletTrucks);
+                            break;
+                        }
+                    }while(temp != 0);
                 }
                 break;
             case 3:
                 try {
                 printWarehouses(warehouses);
                 }catch (const NoWarehouseException&){
+                    std::cout << "Czy chcesz teraz stworzyc magazyn?\n"
+                                 "1: Tak.\n"
+                                 "0: Nie, wroc do glownego menu." << '\n';
+                    int temp = 0;
+                    do {
+                        temp = readInt();
+                        if( temp == 1 ){
+                            createWarehouse(warehouses);
+                            break;
+                        }
+                    }while(temp != 0);
 
                 }
                 break;
@@ -102,7 +123,17 @@ int main(int argc, char** argv) {
                 try{
                 printPalletTrucks(palletTrucks);
                 }catch (const NoPalletTruckException&){
-
+                    std::cout << "Czy chcesz teraz stworzyc paleciak?\n"
+                                 "1: Tak.\n"
+                                 "0: Nie, wroc do glownego menu." << '\n';
+                    int temp = 0;
+                    do {
+                        temp = readInt();
+                        if( temp == 1 ){
+                            createPalletTruck(palletTrucks);
+                            break;
+                        }
+                    }while(temp != 0);
                 }
                 break;
             default:
@@ -113,3 +144,4 @@ int main(int argc, char** argv) {
     warehouses.clear();
     palletTrucks.clear();
 }
+

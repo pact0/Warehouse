@@ -1,11 +1,9 @@
 #include "helperFun.h"
 
 void menuProduct(basic_vector<Warehouse*>& warehouses){
-    if(warehouses.empty() ){
+    if(warehouses.empty() )
         throw NoWarehouseException();
-        std::cerr << "Najpierw stworz magazyn!\n";
-        return;
-    }
+
     int choice;
     int which = chooseWarehouse(warehouses);
     std::string name;
@@ -98,7 +96,6 @@ void menuProduct(basic_vector<Warehouse*>& warehouses){
 
 void menuWarehouse(basic_vector<Warehouse*>& warehouses){
     int choice;
-    static int warehouseID = 0;
     int i;
     int index;
     do {
@@ -114,16 +111,15 @@ void menuWarehouse(basic_vector<Warehouse*>& warehouses){
                 std::cout << "\nWracam do glownego menu.\n";
                 break;
             case 1:
-                std::cout << "Tworze magazyn.\n";
-                warehouses.push_back( new Warehouse(warehouseID++) );
+                createWarehouse(warehouses);
                 break;
             case 2:
                 menuProduct(warehouses);
                 break;
             case 3:
-                if(warehouses.empty() ){
+                if(warehouses.empty() )
                     throw NoWarehouseException();
-                }
+
                 std::cout << "Ktory magazyn chcesz wypisac?\n" << "Dostepne ID:" << '\t';
                 for (auto & warehouse : warehouses){
                     std::cout << warehouse->fetchID() << "  ";
@@ -144,8 +140,6 @@ void menuWarehouse(basic_vector<Warehouse*>& warehouses){
 }
 
 void menuPalletTruck(basic_vector<Warehouse*>& warehouses, basic_vector<PalletTruck*>& palletTrucks){
-    if ( warehouses.empty() )
-        throw NoWarehouseException();
     int choice;
     int i;
     int ID;
@@ -166,23 +160,23 @@ void menuPalletTruck(basic_vector<Warehouse*>& warehouses, basic_vector<PalletTr
                 std::cout << "\nWracam do glownego menu.\n";
                 break;
             case 1:
-                do {
-                    std::cout << "\nPodaj maksymalny udzwig w kg.\n";
-                    howMuch = readDouble();
-                }while(howMuch <= 0 && ( std::cerr << "Podaj odpowiednia wartosc(wieksza od 0)!" << '\n', 1) );
-                palletTrucks.push_back( new PalletTruck(howMuch) );
+                createPalletTruck(palletTrucks);
                 break;
             case 2:
-                if(warehouses.empty() ){
-                    throw NoWarehouseException();
-                }
-                which = chooseWarehouse(warehouses);
-                if( warehouses[which]->isEmpty() ) {
-                    throw EmptyWarehouseException();
-                }
-                std::cout << "Ktory paleciak zaladowac?\n";
                 if( palletTrucks.empty() )
                     throw NoPalletTruckException();
+
+                if(warehouses.empty() )
+                    throw NoWarehouseException();
+
+                which = chooseWarehouse(warehouses);
+
+                if( warehouses[which]->isEmpty() )
+                    throw EmptyWarehouseException();
+
+                std::cout << "Ktory paleciak zaladowac?\n";
+
+
                 i = choosePalletTruck(palletTrucks);
                 std::cout << "\nWybierz produkt.\n";
                 warehouses[which]->printWarehouse();
@@ -206,11 +200,9 @@ void menuPalletTruck(basic_vector<Warehouse*>& warehouses, basic_vector<PalletTr
                 std::cout << "Udalo sie zaladowac towar.\n";
                 break;
             case 3:
-                if(warehouses.empty() ){
+                if(warehouses.empty() )
                     throw NoWarehouseException();
-                    std::cerr << "Najpierw stworz magazyn!\n";
-                    break;
-                }
+
                 which = chooseWarehouse(warehouses);
                 std::cout << "Ktory paleciak rozladowac?\n";
                 i = choosePalletTruck(palletTrucks);
@@ -239,7 +231,7 @@ void menuPalletTruck(basic_vector<Warehouse*>& warehouses, basic_vector<PalletTr
 void printPalletTrucks(basic_vector<PalletTruck*>& palletTrucks){
     if( palletTrucks.empty())
         throw NoPalletTruckException();
-        std::cerr << "Nie stowrzyles jeszcze zadnego paleciaka.\n";
+
     for(auto & palletTruck : palletTrucks) {
         palletTruck->printPalletTruck();
     }
@@ -248,7 +240,6 @@ void printPalletTrucks(basic_vector<PalletTruck*>& palletTrucks){
 void printWarehouses(basic_vector<Warehouse*>& warehouses){
     if( warehouses.empty())
         throw NoWarehouseException();
-        std::cerr << "Nie stowrzyles jeszcze zadnego magazynu.\n";
 
     for (auto& item : warehouses){
         item->printWarehouse();
@@ -269,6 +260,7 @@ int findWarehouse(basic_vector<Warehouse*>& warehouses, int ID) {
 void receive(Warehouse& warehouse ) {
     if(warehouse.isEmpty())
         throw EmptyWarehouseException();
+
     std::cout << "\nOto lista towarow:" << '\n';
     warehouse.printWarehouse();
 
@@ -293,6 +285,7 @@ void receive(Warehouse& warehouse ) {
 void dispense(Warehouse& warehouse ) {
     if(warehouse.isEmpty())
         throw EmptyWarehouseException();
+
     std::cout << "Oto lista towarow: " << '\n';
     warehouse.printWarehouse();
 
@@ -326,6 +319,7 @@ void dispense(Warehouse& warehouse ) {
 int chooseWarehouse(basic_vector<Warehouse*>& warehouses) {
     if ( warehouses.empty() )
         throw NoWarehouseException();
+
     int which;
     int check;
     std::cout << "\nNa ktorym magazynie chcesz pracowac?" << '\n';
@@ -348,8 +342,10 @@ int chooseWarehouse(basic_vector<Warehouse*>& warehouses) {
 int choosePalletTruck(basic_vector<PalletTruck*>& palletTrucks) {
     if (palletTrucks.empty() )
         throw NoPalletTruckException();
+
     int which;
     int check;
+
     printPalletTrucks(palletTrucks);
     do {
         check = 0;
@@ -364,4 +360,19 @@ int choosePalletTruck(basic_vector<PalletTruck*>& palletTrucks) {
 
     }while(which > palletTrucks.size() && ( std::cerr << "Podaj odpowiednia wartosc!" << '\n', 1) );
     return which;
+}
+
+void createWarehouse(basic_vector<Warehouse*>& warehouses){
+    static int warehouseID = 0;
+    std::cout << "Tworze magazyn.\n";
+    warehouses.push_back( new Warehouse(warehouseID++) );
+}
+
+void createPalletTruck(basic_vector<PalletTruck*>& palletTrucks){
+    double howMuch = 0;
+    do {
+        std::cout << "\nPodaj maksymalny udzwig w kg.\n";
+        howMuch = readDouble();
+    }while(howMuch <= 0 && ( std::cerr << "Podaj odpowiednia wartosc(wieksza od 0)!" << '\n', 1) );
+    palletTrucks.push_back( new PalletTruck(howMuch) );
 }

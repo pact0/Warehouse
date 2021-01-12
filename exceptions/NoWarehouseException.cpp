@@ -1,5 +1,5 @@
 #include "NoWarehouseException.h"
 
 NoWarehouseException::NoWarehouseException() {
-    std::cerr << "No warehouse created." << '\n';
+    std::cerr << "Nie stworzyles jeszcze zadnego magazynu." << '\n';
 }

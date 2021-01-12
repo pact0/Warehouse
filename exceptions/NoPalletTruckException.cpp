@@ -1,5 +1,5 @@
 #include "NoPalletTruckException.h"
 
 NoPalletTruckException::NoPalletTruckException() {
-    std::cerr << "No pallet truck created." << '\n';
+    std::cerr << "Nie stworzyles jeszcze zadnego paleciaka." << '\n';
 }

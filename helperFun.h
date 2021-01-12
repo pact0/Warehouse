@@ -20,6 +20,8 @@ void receive(Warehouse& warehouse);
 int choosePalletTruck(basic_vector<PalletTruck*> &palletTrucks);
 int findWarehouse(basic_vector<Warehouse*>& warehouses, int ID);
 int chooseWarehouse(basic_vector<Warehouse*>& warehouses);
+void createWarehouse(basic_vector<Warehouse*>& warehouses);
+void createPalletTruck(basic_vector<PalletTruck*>& palletTrucks);
 
 int readInt();
 double readDouble();
