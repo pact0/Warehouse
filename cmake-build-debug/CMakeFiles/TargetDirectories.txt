@@ -1,3 +1,0 @@
-C:/Users/Kuba/Warehouse/cmake-build-debug/CMakeFiles/Warehouse.dir
-C:/Users/Kuba/Warehouse/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Kuba/Warehouse/cmake-build-debug/CMakeFiles/rebuild_cache.dir
