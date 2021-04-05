@@ -1,5 +1,5 @@
 # Warehouse Manager
-Program designed to manage multiple warehouses and items inside them. Allows user to restock items, add new ones, sell and move them between warehouses. 
+Program designed to manage multiple warehouses and items inside them. Allows user to restock items, add new ones, sell and move them between warehouses. Bacis error handling is included and program has the ability to read instructions from a text file. Such text file is included as an example in main project directory.
 
 # Main Menu
 - 0 exits the program
