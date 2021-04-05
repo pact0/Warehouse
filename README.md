@@ -25,7 +25,7 @@ Program designed to manage multiple warehouses and items inside them. Allows use
 
 Moving products around is handled in a way that each pallet truck has its own maximum load and it can not be exceeded. 
 
-Each type of product has its own weight too. 
+Each type of product has its own weight and amount. 
 
 User can not take more products from a warehouse than exist there and can not unload more than is currently loaded on a pallet truck. 
 
