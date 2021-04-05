@@ -1,40 +1,34 @@
-"# Warehouse"
--
+# Warehouse Manager
+Program designed to manage multiple warehouses and items inside them. Allows user to restock items, add new ones, sell and move them between warehouses. 
 
-Użytkownik może zdecydować się na przekazanie do argumentów programu pliku z gotową listą instrukcji. Jeżeli go nie poda to program pozwoli mu na wczytanie danych z klawiatury.
+# Main Menu
+- 0 exits the program
+- 1 opens another menu where you can manage warehouses directly
+- 2 opens menu where you can manage pallet trucks which are designed to move items between warehouses
+- 3 displays all warehouses and their items
+- 4 displays all pallet trucks and their load
 
- 
-Po włączeniu programu użytkownik dostaje menu z pięcioma opcjami obsługi magazynu. (0-5)
+# Submenus
+### Warehouse Menu
+- 0 return to main menu
+- 1 create new warehouse
+- 2 manage items in warehous
 
-Zaczynając od '0' - kończy ona program.
--
+### Pallet truck Menu
+- 0 return to main menu
+- 1 create new pallet truck
+- 2 display all pallet trucks
+- 3 load items on concrete pallet truck
+- 4 unload items from concrete pallet truck to concrete warehouse
 
-Pod '1' użytkownik przechodzi do kolejnego menu zarządzania magazynami, może on tam:
--
-- wrócić do menu głównego
-- stworzyć nowy magazyn
+# Premises
 
-Można tworzyć wiele magazynów.
+Moving products around is handled in a way that each pallet truck has its own maximum load and it can not be exceeded. 
 
-- zarządzać produktami w magazynie 
+Each type of product has its own weight too. 
 
-czyli przejść do kolejnego menu, gdzie można stworzyć Produkt jednego z dostępnych typów o unikalnym ID wobec wszystkich magazynów oraz manipulować ilością tych produktów. Jeżeli nadejdzie taka potrzeba można zmienić magazyn na którym się pracuje lub wypisać jego zawartość.
+User can not take more products from a warehouse than exist there and can not unload more than is currently loaded on a pallet truck. 
 
-- wypisać konkretny magazyn.
+When user unloads the exact amount that is loaded (example: we have 50 items loaded and user unloads 50) instead of setting amount to 0, item is completly removed from pallet truck's vector of items. 
 
-Pod '2' mamy dostęp do menu zarządzania Paleciakami.
--
-- stworzenie paleciaka,
-- wypisanie paleciaka,
-- zaladowanie paleciaka,
-- rozladowanie paleciaka.
-
-Można tworzyć wiele paleciaków.
-
-Aby zaladowac produkt na paleciak, uzytkownik musi sprecyzowac na którym magazynie i na którym paleciaku chce pracować. Potem musi wybrać konkretne ID danego produktu oraz jego ilość, która ma zostać umieszczona na paleciak. Gdy zdecydujemy się na zabranie całego towaru z magazynu, stwierdziłem, że nie ma potrzeby usuwać go z wektora produktów, ponieważ za każdym razem tworząc nowy produkt i tak ustawiamy jego ilość domyślnie na '0' tak jak to było sprecyzowane w pierwszym etapie projektu. użytkownik może potem zwiększyć ilość towaru wchodząc do menu zarządzania magazynami. Traktuję to jako pusty, podpisany regał w magazynie przeznaczony na dany towar
-
-Aby rozładować paleciak użytkownik musi sprecyzowac na którym paleciaku chce pracować i do którego magazynu chce go rozładować. Potem musi podać ID oraz ilość danego Produktu do rozładowania. Gdy zdecyduje się on rozładować cały towar zostanie on usunięty z paleciaka i zostanie na nim zwolnione miejsce. Jeżeli w danym magazynie nie było jeszcze towaru z ID Produktu który ma zostać tam rozładowany zostanie utworzony taki Produkt w danym magaazynie. Natomiast jeżeli Produkt z takim ID już istniej, jego ilość z paleciaka zostanie przyłączona do tej w magazynie.
-
-Pod '3' oraz '4' jest dostęp do wypisania wszystkich stworzonych Magazynów oraz Paleciaków.
--
-
+When unloading to a warehouse, products with the same ID are merged together and when there is no product with such ID new one is created.
